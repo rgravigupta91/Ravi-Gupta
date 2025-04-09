@@ -1,4 +1,3 @@
-#!C:/Python/Python312/python
 # -*- coding: utf-8 -*-
 """
 Created on Tue Apr  6 14:08:44 2021
@@ -14,55 +13,42 @@ Updated on Tue Jan  21 13:17:44 2021
 import flask
 import pickle
 import pandas as pd
-import requests
-import cgi 
 
-def predict():
-	form = cgi.FieldStorage()
-	Married = form.getvalue('Married')
-	Education = form.getvalue('Education')
-	ApplicantIncome = form.getvalue('ApplicantIncome')
-	LoanAmount = form.getvalue('LoanAmount')
-	Credit_History = form.getvalue('Credit_History')
-	
-	try:
-		my_model=pickle.load(open('full_pipeline','rb'))
-	except Exception as e:
-		print('Model Load Error : ',repr(e))
-	try:
-		test = pd.DataFrame([[Married,Education,ApplicantIncome,LoanAmount,Credit_History]],
-							   columns=['Married','Education','ApplicantIncome','LoanAmount','Credit_History'],
-							   #dtype=float,
-							   index=['input'])	
-	except Exception as e:
-		print('DataFrame reation : ',repr(e))
-	return my_model.predict(test)[0]
-	
-print("Content-Type: text/html")
-print("");
-print("<h1>This is my first Python Program</h1>")
-print("Probability for rejection is : ",predict())
+my_model=pickle.load(open('full_pipeline','rb'))
 
+# Initialise the Flask app
+app = flask.Flask(__name__, template_folder='templates')
 
-#
-# Extract the input
-
-
+# Set up the main route
+@app.route('/', methods=['GET', 'POST'])
+def main():
+    if flask.request.method == 'GET':
+        # Just render the initial form, to get input
+        return(flask.render_template('main.html'))
+    
+    if flask.request.method == 'POST':
+        # Extract the input
+        Married = flask.request.form['Married']
+        Education = flask.request.form['Education']
+        ApplicantIncome = flask.request.form['ApplicantIncome']
+        LoanAmount = flask.request.form['LoanAmount']
+        Credit_History = flask.request.form['Credit_History']
 
         # Make DataFrame for model
+        test = pd.DataFrame([[Married,Education,ApplicantIncome,LoanAmount,Credit_History]],
+                                       columns=['Married','Education','ApplicantIncome','LoanAmount','Credit_History'],
+                                       dtype=float,
+                                       index=['input'])
 
+        # Get the model's prediction
 
-# Get the model's prediction
-
-
-
-
-"""     
+        prediction=my_model.predict(test)[0]
+        
+        
         #prediction = model.predict(input_variables)[0]
     
         # Render the form again, but add in the prediction and remind user
         # of the values they input before
-		
         return flask.render_template('main.html',
                                      original_input={'Married':Married,
                                                      'Education':Education,
@@ -71,4 +57,6 @@ print("Probability for rejection is : ",predict())
                                                      'Credit_History':Credit_History},
                                      result=prediction,
                                      )
-"""
+
+if __name__ == '__main__':
+    app.run()
