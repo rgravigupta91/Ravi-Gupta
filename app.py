@@ -37,7 +37,7 @@ def main():
         # Make DataFrame for model
         test = pd.DataFrame([[Married,Education,ApplicantIncome,LoanAmount,Credit_History]],
                                        columns=['Married','Education','ApplicantIncome','LoanAmount','Credit_History'],
-                                       dtype=float,
+                                       #dtype=float,
                                        index=['input'])
 
         # Get the model's prediction
