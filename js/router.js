@@ -6,5 +6,3 @@ async function loadView(view){
     document.getElementById("content").innerHTML = html;
 
 }
-
-window.onload = () => loadView("home");

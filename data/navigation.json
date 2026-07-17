@@ -1,0 +1,54 @@
+{
+  "menus": [
+    {
+      "title": "Home",
+      "url": "/",
+      "view": "home",
+      "enabled": true
+    },
+    {
+      "title": "Journal",
+      "url": "/journal",
+      "view": "journal",
+      "enabled": true
+    },
+    {
+      "title": "Projects",
+      "url": "/projects",
+      "view": "projects",
+      "enabled": true
+    },
+    {
+      "title": "Learning",
+      "url": "/learning",
+      "view": "learning",
+      "enabled": false,
+      "children": [
+        {
+          "title": "Machine Learning",
+          "url": "/learning/ml",
+          "view": "learning/ml",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "title": "Journey",
+      "url": "/journey",
+      "view": "journey",
+      "enabled": true
+    },
+    {
+      "title": "About",
+      "url": "/about",
+      "view": "about",
+      "enabled": true
+    },
+    {
+      "title": "Contact",
+      "url": "/contact",
+      "view": "contact",
+      "enabled": true
+    }
+  ]
+}
