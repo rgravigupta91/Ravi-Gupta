@@ -1,8 +1,10 @@
+let navigationData = null;
+
 async function loadNavigation() {
 
     const response = await fetch("data/navigation.json");
 
-    const navigation = await response.json();
+    navigationData = await response.json();
 
     const navContainer = document.getElementById("topNavigation");
 
@@ -10,7 +12,7 @@ async function loadNavigation() {
 
     let html = "";
 
-    navigation.menus.forEach(menu => {
+    navigationData.menus.forEach(menu => {
 
         if (!menu.enabled)
             return;
@@ -46,11 +48,9 @@ function initializeNavigation(){
 
                 const clickedLink = e.currentTarget;
 
-                setActiveMenu(clickedLink);
+                const menu = getMenuByUrl(clickedLink.dataset.url);
 
-                const view = clickedLink.dataset.view;
-
-                await loadView(view);
+                await navigateTo(menu, clickedLink, true);
 
             });
 
@@ -69,5 +69,12 @@ function setActiveMenu(clickedLink) {
         });
 
     clickedLink.classList.add("active");
+
+}
+
+
+function getMenuByUrl(url) {
+
+    return navigationData.menus.find(menu => menu.url === url);
 
 }

@@ -1,0 +1,14 @@
+RewriteEngine On
+
+RewriteBase /Portfolio/
+
+# Don't rewrite existing files
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Don't rewrite existing directories
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rewrite only application routes
+RewriteRule . index.html [L]
