@@ -12,6 +12,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const route = getInitialRoute();
 
+    // Remove ?route= from URL after initial load
+    if (window.location.search.includes("route=")) {
+
+        history.replaceState(
+            null,
+            "",
+            buildUrl(route)
+        );
+
+    }
+
     let menu = getMenuByRoute(route);
 
     if (!menu) {
