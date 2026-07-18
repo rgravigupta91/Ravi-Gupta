@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     initializeNavigation();
 
-    const route = getCurrentRoute();
+    const route = getInitialRoute();
 
     let menu = getMenuByRoute(route);
 
