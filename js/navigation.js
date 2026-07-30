@@ -42,7 +42,7 @@ function initializeNavigation(){
         .querySelectorAll("#topNavigation .nav-link")
         .forEach(link=>{
 
-            link.addEventListener("click",async(e)=>{
+            link.addEventListener("click", async (e) => {
 
                 e.preventDefault();
 
@@ -51,6 +51,15 @@ function initializeNavigation(){
                 const menu = getMenuByUrl(clickedLink.dataset.url);
 
                 await navigateTo(menu, clickedLink, true);
+
+                // Close mobile menu if it is open
+                const navbar = document.getElementById("navbar");
+
+                if (navbar && navbar.classList.contains("show")) {
+
+                    bootstrap.Collapse.getOrCreateInstance(navbar).hide();
+
+                }
 
             });
 

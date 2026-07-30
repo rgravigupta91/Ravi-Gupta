@@ -37,4 +37,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await navigateTo(menu, activeLink);
 
+    document.querySelectorAll(".footer-nav").forEach(link => {
+
+    link.addEventListener("click", async function (e) {
+
+        e.preventDefault();
+
+        await navigateByUrl(this.dataset.url);
+
+    });
+
 });
+});
+
+function initializeView(view) {
+
+    switch (view) {
+
+        case "contact":
+            initializeContact();
+            break;
+
+    }
+
+}

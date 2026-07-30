@@ -51,11 +51,27 @@ async function navigateTo(menu, clickedLink = null, updateHistory = false) {
     }
 
     await loadView(menu.view);
-
+    initializeView(menu.view);
     document.title = `${menu.title} | Ravi Kumar Gupta`;
 
 }
 
+async function navigateByUrl(url) {
+
+    const menu = getMenuByUrl(url);
+
+    if (!menu) {
+        console.error("Menu not found:", url);
+        return;
+    }
+
+    const activeLink = document.querySelector(
+        `[data-url="${menu.url}"]`
+    );
+
+    await navigateTo(menu, activeLink, true);
+
+}
 
 function getInitialRoute() {
 
