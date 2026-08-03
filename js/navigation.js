@@ -36,7 +36,7 @@ navContainer.innerHTML = html;
 }
 
 
-function initializeNavigation(){
+/* function initializeNavigation(){
 
     document
         .querySelectorAll("#topNavigation .nav-link")
@@ -52,20 +52,11 @@ function initializeNavigation(){
 
                 await navigateTo(menu, clickedLink, true);
 
-                // Close mobile menu if it is open
-                const navbar = document.getElementById("navbar");
-
-                if (navbar && navbar.classList.contains("show")) {
-
-                    bootstrap.Collapse.getOrCreateInstance(navbar).hide();
-
-                }
-
             });
 
         });
 
-}
+} */
 
 function setActiveMenu(clickedLink) {
 

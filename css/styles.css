@@ -10,4 +10,5 @@ a {
 
 .hero-buttons .btn{
     min-width:220px;
+    margin-top: 5px;
 }

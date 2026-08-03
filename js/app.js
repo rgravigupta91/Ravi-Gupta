@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadNavigation();
 
     initializeNavigation();
+    
+    initializeFooter();
 
     const route = getInitialRoute();
 
@@ -28,6 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!menu) {
 
         menu = getMenuByRoute("/");
+        history.replaceState(
+        null,
+        "",
+        buildUrl("/")
+    );
 
     }
 
@@ -37,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await navigateTo(menu, activeLink);
 
-    document.querySelectorAll(".footer-nav").forEach(link => {
+    /* document.querySelectorAll(".footer-nav").forEach(link => {
 
     link.addEventListener("click", async function (e) {
 
@@ -45,9 +52,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         await navigateByUrl(this.dataset.url);
 
-    });
+    }); 
 
-});
+}); */
 });
 
 function initializeView(view) {
@@ -60,4 +67,18 @@ function initializeView(view) {
 
     }
 
+}
+
+function closeMobileMenu(){
+    const navbar =
+        document.getElementById("navbarMenu");
+
+    if(!navbar)
+        return;
+
+    const collapse = bootstrap.Collapse.getInstance(navbar);
+
+    if (collapse) {
+        collapse.hide();
+    }
 }
