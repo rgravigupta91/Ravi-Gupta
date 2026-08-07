@@ -10,7 +10,49 @@
       "title": "Journal",
       "url": "/journal",
       "view": "journal",
-      "enabled": true
+      "enabled": true,
+      "children": [
+                {
+                    "title": "AI",
+                    "url": "/journal/ai",
+                    "view": "journal-ai",
+                    "enabled": true,
+                    "children": [
+                        {
+                            "title": "Agents",
+                            "url": "/journal/ai/agents",
+                            "view": "journal-agents",
+                            "enabled": true
+                        },
+                        {
+                            "title": "RAG",
+                            "url": "/journal/ai/rag",
+                            "view": "journal-rag",
+                            "enabled": true,
+                            "children": [
+                            {
+                                "title": "Agents",
+                                "url": "/journal/ai/agents",
+                                "view": "journal-agents",
+                                "enabled": true
+                            },
+                            {
+                                "title": "RAG",
+                                "url": "/journal/ai/rag",
+                                "view": "journal-rag",
+                                "enabled": true
+                            }
+                          ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Data Science",
+                    "url": "/journal/data-science",
+                    "view": "journal-data-science",
+                    "enabled": true
+                }
+            ]
     },
     {
       "title": "Projects",
