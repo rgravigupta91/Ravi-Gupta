@@ -8,10 +8,31 @@ function getBasePath() {
 
 }
 
-function getMenuByRoute(route) {
+function getMenuByRoute(
+    route,
+    menus = navigationData.menus
+) {
 
-    return navigationData.menus.find(menu => menu.url === route);
+    for (const menu of menus) {
 
+        if (menu.url === route)
+            return menu;
+
+        if (menu.children &&
+            menu.children.length > 0) {
+
+            const found =
+                getMenuByRoute(
+                    route,
+                    menu.children
+                );
+
+            if (found)
+                return found;
+        }
+    }
+
+    return null;
 }
 
 function buildUrl(route) {
@@ -89,3 +110,22 @@ function getInitialRoute() {
     return getCurrentRoute();
 
 }
+
+window.addEventListener("popstate", async () => {
+
+    const route = getCurrentRoute();
+
+    const menu = getMenuByRoute(route);
+
+    if (!menu) {
+        console.error("Menu not found for route:", route);
+        return;
+    }
+
+    const activeLink = document.querySelector(
+        `[data-url="${menu.url}"]`
+    );
+
+    await navigateTo(menu, activeLink, false);
+
+});
