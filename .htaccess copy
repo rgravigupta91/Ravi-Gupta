@@ -2,13 +2,16 @@ RewriteEngine On
 
 RewriteBase /Portfolio/
 
-# Don't rewrite existing files
+Don't rewrite existing files
+
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# Don't rewrite existing directories
+Don't rewrite existing directories
+
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Send everything else to 404.html
-ErrorDocument 404 /Portfolio/404.html
+Rewrite only application routes
+
+RewriteRule . index.html [L]

@@ -23,6 +23,93 @@ a {
     margin-top: -1px;
 }
 
-.dropdown-submenu:hover > .dropdown-menu {
-    display: block;
+/* Desktop: open submenu on hover */
+@media (min-width: 992px) {
+
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .dropdown-submenu > .dropdown-menu.dropdown-menu-left {
+        left: auto;
+        right: 100%;
+    }
+
+}
+/* =========================================================
+   Mobile Navigation
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+    /*
+     * Nested menus should behave like an accordion
+     * on mobile.
+     */
+
+    .dropdown-submenu > .dropdown-menu {
+        position: static;
+        margin: 0;
+        border: 0;
+        padding-left: 1rem;
+    }
+
+    /*
+     * Hidden by default.
+     */
+
+    .dropdown-submenu > .dropdown-menu {
+        display: none;
+    }
+
+    /*
+     * JavaScript adds .show when the parent
+     * is tapped.
+     */
+
+    .dropdown-submenu > .dropdown-menu.show {
+        display: block;
+    }
+
+}
+
+@media (max-width: 991.98px) {
+
+    .dropdown-submenu .dropdown-menu .dropdown-item:hover,
+    .dropdown-submenu .dropdown-menu .dropdown-item:focus,
+    .dropdown-submenu .dropdown-menu .dropdown-item:active {
+        background-color: transparent !important;
+        color: inherit !important;
+    }
+
+}
+
+/* =========================================================
+   Nested dropdown focus/active state
+   ========================================================= */
+
+.dropdown-submenu > .submenu-toggle:focus,
+.dropdown-submenu > .submenu-toggle:active,
+.dropdown-submenu > .submenu-toggle.active {
+    background-color: transparent;
+    color: inherit;
+}
+
+.dropdown-submenu > .submenu-toggle:focus-visible {
+    outline: none;
+}
+
+.dropdown-menu .dropdown-item:focus {
+    background-color: transparent;
+}
+
+/* Active navigation item */
+.dropdown-menu .dropdown-item.nav-link.active {
+    background-color: #198754 !important;
+    color: #ffffff !important;
+    font-weight: 600;
 }

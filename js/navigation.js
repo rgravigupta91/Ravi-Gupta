@@ -28,13 +28,6 @@ async function loadNavigation() {
 
 function initializeNavigation() {
 
-    /*
-     * Only actual navigation links are handled here.
-     *
-     * Submenu parents use .submenu-toggle and are handled
-     * separately by initializeSubMenus().
-     */
-
     document
         .querySelectorAll("#topNavigation .nav-link")
         .forEach(link => {
@@ -53,6 +46,40 @@ function initializeNavigation() {
 
                 if (!menu)
                     return;
+
+
+                const hasChildren =
+                    menu.children &&
+                    menu.children.length > 0;
+
+
+                /*
+                 * Parent menu
+                 *
+                 * On mobile:
+                 * expand/collapse instead of navigating.
+                 */
+
+                if (hasChildren &&
+                    window.innerWidth < 992) {
+
+                    const submenu =
+                        clickedLink.nextElementSibling;
+
+                    if (submenu) {
+
+                        submenu.classList.toggle("show");
+
+                    }
+
+                    return;
+
+                }
+
+
+                /*
+                 * Actual navigation item
+                 */
 
                 await navigateTo(
                     menu,
@@ -73,44 +100,126 @@ function initializeNavigation() {
 /* =========================================================
    Initialize Submenus
    ========================================================= */
-
 function initializeSubMenus() {
 
     document
-        .querySelectorAll("#topNavigation .submenu-toggle")
+        .querySelectorAll(
+            "#topNavigation .submenu-toggle"
+        )
+        .forEach(link => {
+
+            link.addEventListener("click", function (e) {
+
+                if (window.innerWidth < 992) {
+
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const submenu =
+                        this.nextElementSibling;
+
+                    if (!submenu)
+                        return;
+
+                    submenu.classList.toggle("show");
+
+                    return;
+                }
+
+            });
+
+        });
+
+
+    /*
+     * Desktop:
+     * Automatically open submenu to the left
+     * when there is not enough space on the right.
+     */
+
+    if (window.innerWidth >= 992) {
+
+        document
+            .querySelectorAll(".dropdown-submenu")
+            .forEach(item => {
+
+                item.addEventListener("mouseenter", function () {
+
+                    const submenu =
+                        this.querySelector(":scope > .dropdown-menu");
+
+                    if (!submenu)
+                        return;
+
+                    const rect =
+                        this.getBoundingClientRect();
+
+                    const submenuWidth =
+                        220;
+
+                    const spaceRight =
+                        window.innerWidth - rect.right;
+
+                    if (spaceRight < submenuWidth) {
+
+                        submenu.classList.add("dropdown-menu-left");
+
+                    }
+                    else {
+
+                        submenu.classList.remove("dropdown-menu-left");
+
+                    }
+
+                });
+
+            });
+
+    }
+
+}
+
+function initializeSubMenus1() {
+
+    document
+        .querySelectorAll(
+            "#topNavigation .submenu-toggle"
+        )
         .forEach(link => {
 
             link.addEventListener("click", function (e) {
 
                 /*
-                 * Important:
-                 * Do NOT allow this click to reach the
-                 * navigation handler or Bootstrap dropdown.
+                 * Mobile:
+                 * expand/collapse submenu.
                  */
 
-                e.preventDefault();
-                e.stopPropagation();
+                if (window.innerWidth < 992) {
 
+                    e.preventDefault();
+                    e.stopPropagation();
 
-                const submenu =
-                    this.nextElementSibling;
+                    const submenu =
+                        this.nextElementSibling;
 
-                if (!submenu)
+                    if (!submenu)
+                        return;
+
+                    submenu.classList.toggle("show");
                     return;
+                }
 
 
                 /*
-                 * Toggle only this submenu.
+                 * Desktop:
+                 * allow Bootstrap/hover behavior.
                  */
-
-                submenu.classList.toggle("show");
 
             });
 
         });
 
 }
-
 
 /* =========================================================
    Set Active Menu

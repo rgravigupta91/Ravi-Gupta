@@ -30,18 +30,46 @@
                             "view": "journal-rag",
                             "enabled": true,
                             "children": [
-                            {
-                                "title": "Agents",
-                                "url": "/journal/ai/agents",
-                                "view": "journal-agents",
-                                "enabled": true
-                            },
-                            {
-                                "title": "RAG",
-                                "url": "/journal/ai/rag",
-                                "view": "journal-rag",
-                                "enabled": true
-                            }
+                                {
+                                    "title": "Agents",
+                                    "url": "/journal/ai/agents",
+                                    "view": "journal-agents",
+                                    "enabled": true
+                                },
+                                {
+                                    "title": "RAG",
+                                    "url": "/journal/ai/rag",
+                                    "view": "journal-rag",
+                                    "enabled": true,
+                                    "children": [
+                                        {
+                                            "title": "Agents",
+                                            "url": "/journal/ai/agents",
+                                            "view": "journal-agents",
+                                            "enabled": true,
+                                            "children": [
+                                                {
+                                                    "title": "Agents",
+                                                    "url": "/journal/ai/agents",
+                                                    "view": "journal-agents",
+                                                    "enabled": true
+                                                },
+                                                {
+                                                    "title": "RAG",
+                                                    "url": "/journal/ai/rag",
+                                                    "view": "journal-rag",
+                                                    "enabled": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "title": "RAG",
+                                            "url": "/journal/ai/rag",
+                                            "view": "journal-rag",
+                                            "enabled": true
+                                        }
+                                    ]
+                                }
                           ]
                         }
                     ]

@@ -1,11 +1,5 @@
 function getBasePath() {
-
-    const path = window.location.pathname;
-
-    const index = path.lastIndexOf("/");
-
-    return path.substring(0, index);
-
+    return App.basePath;
 }
 
 function getMenuByRoute(
@@ -46,7 +40,7 @@ function getCurrentRoute() {
 
     let path = window.location.pathname;
 
-    const basePath = getBasePath();
+    const basePath = App.basePath;
 
     if (path.startsWith(basePath)) {
 
@@ -54,10 +48,10 @@ function getCurrentRoute() {
 
     }
 
-    if (path === "")
-        path = "/";
+    if (!path)
+        return "/";
 
-    return path;
+    return "/" + path.replace(/^\/+/, "");
 
 }
 
