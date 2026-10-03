@@ -12,6 +12,12 @@
       "view": "journal",
       "enabled": true,
       "children": [
+            {
+                    "title": "Are we Under Utilizing AI?",
+                    "url": "/journal/are-we-under-utilizing-ai",
+                    "view": "journal-are-we-under-utilizing-ai",
+                    "enabled": true
+                },
                 {
                     "title": "AI",
                     "url": "/journal/ai",
@@ -28,49 +34,7 @@
                             "title": "RAG",
                             "url": "/journal/ai/rag",
                             "view": "journal-rag",
-                            "enabled": true,
-                            "children": [
-                                {
-                                    "title": "Agents",
-                                    "url": "/journal/ai/agents",
-                                    "view": "journal-agents",
-                                    "enabled": true
-                                },
-                                {
-                                    "title": "RAG",
-                                    "url": "/journal/ai/rag",
-                                    "view": "journal-rag",
-                                    "enabled": true,
-                                    "children": [
-                                        {
-                                            "title": "Agents",
-                                            "url": "/journal/ai/agents",
-                                            "view": "journal-agents",
-                                            "enabled": true,
-                                            "children": [
-                                                {
-                                                    "title": "Agents",
-                                                    "url": "/journal/ai/agents",
-                                                    "view": "journal-agents",
-                                                    "enabled": true
-                                                },
-                                                {
-                                                    "title": "RAG",
-                                                    "url": "/journal/ai/rag",
-                                                    "view": "journal-rag",
-                                                    "enabled": true
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "title": "RAG",
-                                            "url": "/journal/ai/rag",
-                                            "view": "journal-rag",
-                                            "enabled": true
-                                        }
-                                    ]
-                                }
-                          ]
+                            "enabled": true
                         }
                     ]
                 },
