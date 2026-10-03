@@ -9,7 +9,7 @@
     {
       "title": "Journal",
       "url": "/journal",
-      "view": "journal",
+      "view": "journal", 
       "enabled": true,
       "children": [
             {
