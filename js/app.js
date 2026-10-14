@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         ? `/${segments[0]}/`
         : "/";
 
-    await loadNavigation();
+    const favicon = document.querySelector('link[rel="icon"]');
+    if (favicon) favicon.href = `${App.basePath}assets/logos/fav-icon1.png`;
+
 
     initializeNavigation();
     
