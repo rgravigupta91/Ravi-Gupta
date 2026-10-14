@@ -1,0 +1,267 @@
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <!-- Header -->
+            <div class="mb-5">
+
+                <span class="badge bg-success px-3 py-2">JOURNAL</span>
+
+                <h1 class="display-5 fw-bold mt-3">
+                    You Give It Examples. It Finds the Rule.
+                </h1>
+
+                <p class="text-secondary mt-2">
+                    How AI programming is different from conventional programming.
+                </p>
+
+            </div>
+
+
+            <!-- Conventional Programming -->
+            <p>
+                Every programmer learns the same way. You are given a problem, you think
+                about the logic, you write the rules, and you run the program.
+            </p>
+
+            <p>
+                It is clean. It is predictable. If something goes wrong, you read the code,
+                find where the logic breaks, and fix it. The machine does exactly what you tell it.
+                Nothing more. Nothing less.
+            </p>
+
+            <p>
+                Let me take a simple example. The AND gate.
+            </p>
+
+
+            <!-- AND Gate - Conventional -->
+            <h2 class="mt-5 mb-3">The AND Gate — The Conventional Way</h2>
+
+            <p>
+                An AND gate takes two inputs — A and B — and returns 1 only when both are 1.
+                In every other case, it returns 0.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <p class="text-secondary mb-2 small">TRUTH TABLE — AND GATE</p>
+                    <table class="table table-dark table-bordered mb-0">
+                        <thead>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>Output</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0</td><td>0</td><td>0</td></tr>
+                            <tr><td>0</td><td>1</td><td>0</td></tr>
+                            <tr><td>1</td><td>0</td><td>0</td></tr>
+                            <tr class="table-success"><td>1</td><td>1</td><td>1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <p>
+                In conventional programming, you look at this table and write the rule immediately.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <p class="text-secondary mb-2 small">CONVENTIONAL CODE</p>
+                    <pre class="mb-0" style="color:#86efac;">def and_gate(A, B):
+    if A == 1 and B == 1:
+        return 1
+    return 0</pre>
+                </div>
+            </div>
+
+            <p>
+                Done. Three lines. You read the problem, you wrote the rule, the program works.
+                That is how conventional software is built.
+            </p>
+
+            <p>
+                But now let me ask a different question.
+            </p>
+
+            <blockquote class="border-start border-secondary border-4 ps-3 my-4">
+                <p class="mb-0 fst-italic">
+                    What if you did not write the rule — but instead showed the program
+                    every possible example, and let it figure the rule out on its own?
+                </p>
+            </blockquote>
+
+
+            <!-- The Perceptron -->
+            <h2 class="mt-5 mb-3">The AI Way — The Perceptron</h2>
+
+            <p>
+                In 1957, Frank Rosenblatt introduced the perceptron — the simplest building
+                block of artificial intelligence. It was inspired by how a single neuron in
+                the brain works.
+            </p>
+
+            <p>
+                A perceptron takes inputs, assigns a weight to each one, adds them up,
+                adds a bias, and passes the result through an activation function.
+                If the result crosses a threshold, it fires 1. Otherwise, 0.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <p class="text-secondary mb-2 small">HOW A PERCEPTRON WORKS</p>
+                    <div class="row text-center g-3">
+                        <div class="col-md-3">
+                            <p class="text-secondary mb-1 small">INPUTS</p>
+                            <p class="fw-semibold mb-0">A, B</p>
+                        </div>
+                        <div class="col-md-1 d-flex align-items-center justify-content-center">
+                            <span class="text-success">→</span>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="text-secondary mb-1 small">WEIGHTED SUM</p>
+                            <p class="fw-semibold mb-0">(A × w1) + (B × w2) + bias</p>
+                        </div>
+                        <div class="col-md-1 d-flex align-items-center justify-content-center">
+                            <span class="text-success">→</span>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="text-secondary mb-1 small">OUTPUT</p>
+                            <p class="fw-semibold mb-0">0 or 1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                Now — and this is the key part — the perceptron does not start with the right weights.
+                It starts with random ones. It could start with anything.
+            </p>
+
+            <p>
+                Then, training begins. You show it the first example: A=0, B=0, expected output=0.
+                The perceptron calculates its answer. If it is wrong, it adjusts its weights slightly
+                in the direction of the correct answer. You repeat this for all four examples,
+                over and over, until the perceptron stops making mistakes.
+            </p>
+
+
+            <!-- Training -->
+            <h2 class="mt-5 mb-3">What Training Actually Looks Like</h2>
+
+            <p>
+                Imagine the perceptron starts with completely random weights — say w1=0.5,
+                w2=0.3, bias=-0.4. It has no idea what an AND gate is. It has never been told the rule.
+            </p>
+
+            <p>
+                In the first pass, it will get some answers wrong. It looks at A=1, B=1
+                and might output 0 when the correct answer is 1. It adjusts. It looks at A=0,
+                B=1 and might output 1 when the correct answer is 0. It adjusts again.
+            </p>
+
+            <p>
+                After enough iterations — typically just a few hundred — something remarkable happens.
+                The weights settle. The perceptron has found values for w1, w2, and bias that
+                correctly produce the right output for every single input combination.
+            </p>
+
+            <p>
+                It discovered the rule. Without being told what it was.
+            </p>
+
+            <div class="card border-success my-5">
+                <div class="card-body p-4 text-center">
+                    <p class="lead mb-2 text-secondary">
+                        Here is what makes this different.
+                    </p>
+                    <p class="lead fw-semibold mb-0">
+                        It does not matter what weights you start with.
+                        Given enough examples and enough iterations,
+                        the perceptron will always converge to the correct answer.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- The Mental Model -->
+            <h2 class="mt-5 mb-3">Two Completely Different Ways of Thinking</h2>
+
+            <p>
+                In my previous journal entry, I described a mental model that I find
+                very useful when thinking about AI.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <div class="row text-center g-3">
+                        <div class="col-md-4">
+                            <p class="text-secondary mb-1 small">CONVENTIONAL SOFTWARE</p>
+                            <p class="fw-semibold mb-0">Input + Rules → Output</p>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                            <span class="text-success fs-4">⇄</span>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="text-secondary mb-1 small">AI / MACHINE LEARNING</p>
+                            <p class="fw-semibold mb-0">Input + Output → Rules</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                The AND gate makes this concrete. In the conventional approach, you wrote
+                the rule and the program executed it. In the perceptron approach, you gave
+                it the inputs and the outputs — all four rows of the truth table — and it
+                found the rule on its own.
+            </p>
+
+            <p>
+                For the AND gate, both approaches work perfectly. The conventional solution
+                is actually simpler. So why does this matter?
+            </p>
+
+            <p>
+                It matters because the AND gate is a toy example. A teaching example.
+                The rule for an AND gate is trivially obvious — any programmer can write it
+                in three lines.
+            </p>
+
+            <p>
+                But what about problems where the rule is not obvious?
+                What about problems where the rule involves thousands of variables?
+                What about problems where the rule exists — in the data — but no human
+                has ever been able to write it down?
+            </p>
+
+            <p>
+                That is where the perceptron's approach becomes powerful.
+                Not for AND gates. For the problems where the rule was never knowable
+                in the first place.
+            </p>
+
+
+            <!-- Closing -->
+            <blockquote class="border-start border-success border-4 ps-3 mt-5">
+                <p class="mb-3">
+                    The perceptron is the simplest proof that a machine can learn
+                    without being told what to learn.
+                </p>
+                <p class="mb-0">
+                    But a single perceptron has limits. And those limits, when they were
+                    discovered, nearly ended AI research entirely.
+                    That is the story I want to tell next.
+                </p>
+            </blockquote>
+
+        </div>
+
+    </div>
+
+</div>

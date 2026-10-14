@@ -1,0 +1,291 @@
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <!-- Header -->
+            <div class="mb-5">
+
+                <span class="badge bg-success px-3 py-2">JOURNAL</span>
+
+                <h1 class="display-5 fw-bold mt-3">
+                    LLM Is the Heart. But Is It the Only One?
+                </h1>
+
+                <p class="text-secondary mt-2">
+                    On SLMs, fine-tuning, and choosing the right model for the right problem.
+                </p>
+
+            </div>
+
+
+            <!-- Opening -->
+            <p>
+                Take any modern AI application — a customer support bot, a document
+                summarizer, a code assistant, a RAG pipeline, an agentic system —
+                and look at what sits at the centre of it.
+            </p>
+
+            <p>
+                In almost every case, you will find a Large Language Model.
+            </p>
+
+            <p>
+                The LLM reasons. It reads context. It generates responses. It decides
+                which tool to call next. It interprets retrieved documents. It writes
+                the final answer. Remove the LLM, and the entire system stops.
+                It is not one component among many. It is the heart.
+            </p>
+
+            <p>
+                But a question has been sitting quietly behind all of this progress:
+            </p>
+
+            <blockquote class="border-start border-secondary border-4 ps-3 my-4">
+                <p class="mb-0 fst-italic">
+                    Does the heart have to be this large?
+                    And does it always have to be someone else's?
+                </p>
+            </blockquote>
+
+
+            <!-- The cost of LLMs -->
+            <h2 class="mt-5 mb-3">The Real Cost of Defaulting to LLMs</h2>
+
+            <p>
+                Large Language Models are remarkable. But remarkable does not mean
+                appropriate for every situation. There are real costs to using them,
+                and those costs are easy to underestimate when you are excited about
+                what they can do.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <i class="bi bi-currency-dollar fs-3 text-warning"></i>
+                                    <h5 class="mt-2">Cost Per Call</h5>
+                                    <p class="text-secondary mb-0 small">
+                                        Every API call to a frontier LLM costs money.
+                                        At low volumes, it is trivial. At production scale —
+                                        millions of calls per day — it becomes significant.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <i class="bi bi-clock fs-3 text-warning"></i>
+                                    <h5 class="mt-2">Latency</h5>
+                                    <p class="text-secondary mb-0 small">
+                                        Large models are slow. For applications where
+                                        response time matters — real-time assistants,
+                                        high-frequency decisions — latency is a hard constraint.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <i class="bi bi-shield-lock fs-3 text-warning"></i>
+                                    <h5 class="mt-2">Privacy</h5>
+                                    <p class="text-secondary mb-0 small">
+                                        Sending data to an external API means your data
+                                        leaves your environment. For sensitive industries —
+                                        healthcare, finance, legal — this is often not acceptable.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <i class="bi bi-bullseye fs-3 text-warning"></i>
+                                    <h5 class="mt-2">Overkill</h5>
+                                    <p class="text-secondary mb-0 small">
+                                        Sometimes the task is narrow. Classify this email.
+                                        Detect this anomaly. Extract this field.
+                                        A trillion-parameter model is not the right tool
+                                        for a three-category classification problem.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                The question is not whether LLMs are powerful. They are.
+                The question is whether they are always the right choice.
+                And the answer, increasingly, is no.
+            </p>
+
+
+            <!-- SLMs -->
+            <h2 class="mt-5 mb-3">Small Language Models — The Case for Smaller</h2>
+
+            <p>
+                A Small Language Model is exactly what it sounds like — a language model
+                with significantly fewer parameters than a frontier LLM. Models like
+                Microsoft's Phi, Meta's Llama, Google's Gemma, and Mistral can run
+                on a laptop. Some can run on a mobile device.
+            </p>
+
+            <p>
+                For many tasks, they perform surprisingly well. And what they lack in
+                raw capability, they often make up for in speed, cost, and the ability
+                to run entirely within your own infrastructure.
+            </p>
+
+            <div class="card border-success my-4">
+                <div class="card-body p-4">
+                    <p class="text-secondary mb-2 small">WHEN AN SLM MAKES MORE SENSE THAN AN LLM</p>
+                    <ul class="mb-0">
+                        <li class="mb-2">The task is well-defined and does not require broad general knowledge</li>
+                        <li class="mb-2">Data privacy prevents sending information to external APIs</li>
+                        <li class="mb-2">Response time is critical and cannot tolerate network latency</li>
+                        <li class="mb-2">The application runs on edge devices or in constrained environments</li>
+                        <li>Cost at scale makes frontier LLM APIs economically unviable</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Fine-tuning -->
+            <h2 class="mt-5 mb-3">Fine-Tuning — Teaching a Model Your Language</h2>
+
+            <p>
+                A pre-trained model — whether large or small — knows a lot about the world
+                in general. But it may know very little about your specific domain.
+                A general LLM knows what a contract is. It does not know the specific
+                terminology, clauses, and patterns in your company's contracts.
+                A general model knows what SAP is. It does not know your custom
+                configurations, your internal processes, or your specific transaction flows.
+            </p>
+
+            <p>
+                Fine-tuning is the process of taking a pre-trained model and continuing
+                to train it on your domain-specific data. You are not training from scratch.
+                You are starting from a model that already understands language, and teaching
+                it to understand <em>your</em> language.
+            </p>
+
+            <p>
+                The result is a model that speaks your domain fluently — often outperforming
+                a much larger general model on your specific tasks, at a fraction of
+                the inference cost.
+            </p>
+
+
+            <!-- Task Specific Models -->
+            <h2 class="mt-5 mb-3">Task-Specific Models — When You Don't Need Language At All</h2>
+
+            <p>
+                Not every AI problem is a language problem. And not every problem that
+                involves text needs an LLM.
+            </p>
+
+            <p>
+                If you want to classify customer support tickets into five categories,
+                a fine-tuned BERT model — a fraction of the size of a modern LLM —
+                will likely outperform a frontier LLM while being 100x cheaper and 10x faster.
+            </p>
+
+            <p>
+                If you want to detect anomalies in transaction data, a traditional
+                machine learning model trained on your historical data will outperform
+                anything a general LLM can do — because it was trained specifically on
+                your patterns, not general human knowledge.
+            </p>
+
+            <p>
+                The instinct to reach for an LLM is understandable. They are impressive
+                and versatile. But versatility is not the same as optimality.
+            </p>
+
+
+            <!-- Decision Framework -->
+            <h2 class="mt-5 mb-3">Choosing the Right Model</h2>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <table class="table table-dark table-bordered mb-0">
+                        <thead>
+                            <tr>
+                                <th>Situation</th>
+                                <th>Right Approach</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Broad reasoning, general knowledge, complex language tasks</td>
+                                <td><span class="badge bg-success">Frontier LLM</span></td>
+                            </tr>
+                            <tr>
+                                <td>Domain-specific language tasks with private data</td>
+                                <td><span class="badge bg-success">Fine-tuned LLM or SLM</span></td>
+                            </tr>
+                            <tr>
+                                <td>Real-time, low-latency, or on-device applications</td>
+                                <td><span class="badge bg-success">SLM</span></td>
+                            </tr>
+                            <tr>
+                                <td>Narrow classification or extraction tasks</td>
+                                <td><span class="badge bg-success">Fine-tuned small model</span></td>
+                            </tr>
+                            <tr>
+                                <td>Structured data — anomaly detection, forecasting, patterns</td>
+                                <td><span class="badge bg-success">Traditional ML model</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <p>
+                The most expensive mistake I see in AI projects is not a technical one.
+                It is defaulting to the most powerful, most general, most expensive option
+                because it feels like the safest choice. It rarely is.
+            </p>
+
+            <p>
+                A frontier LLM is the right tool when the problem genuinely requires
+                broad knowledge, flexible reasoning, and language understanding at scale.
+                For everything else, there is usually a better fit — something smaller,
+                faster, cheaper, and more precise.
+            </p>
+
+
+            <!-- Closing -->
+            <blockquote class="border-start border-success border-4 ps-3 mt-5">
+                <p class="mb-3">
+                    The LLM is the heart of the modern AI stack. That is not going to change.
+                </p>
+                <p class="mb-3">
+                    But a good engineer does not pick the most powerful component.
+                    They pick the right one.
+                </p>
+                <p class="mb-0">
+                    Understanding when to use a frontier LLM, when to fine-tune,
+                    when to reach for an SLM, and when to skip language models entirely —
+                    that is the skill that will separate good AI engineering
+                    from expensive AI experimentation.
+                </p>
+            </blockquote>
+
+        </div>
+
+    </div>
+
+</div>

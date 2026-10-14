@@ -1,0 +1,289 @@
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <!-- Header -->
+            <div class="mb-5">
+
+                <span class="badge bg-success px-3 py-2">JOURNAL</span>
+
+                <h1 class="display-5 fw-bold mt-3">
+                    From One Neuron to a Billion — And What We Built on Top
+                </h1>
+
+                <p class="text-secondary mt-2">
+                    How deep learning evolved into large language models, and the systems we built around them.
+                </p>
+
+            </div>
+
+
+            <!-- Opening -->
+            <p>
+                We left off with a discovery. A neural network — multiple perceptrons
+                connected in layers — could learn any pattern, given enough data and
+                enough training. The question was no longer <em>can it learn?</em>
+                The question became <em>what happens when we scale it?</em>
+            </p>
+
+            <p>
+                The answer took decades to arrive. And when it did, it changed everything.
+            </p>
+
+
+            <!-- Deep Learning Moment -->
+            <h2 class="mt-5 mb-3">The Moment Deep Learning Proved Itself</h2>
+
+            <p>
+                For years after the 1986 backpropagation breakthrough, neural networks
+                remained mostly academic. They worked on small problems but struggled to
+                scale. Computers were not fast enough. Data was not plentiful enough.
+                Training a large network took weeks or months.
+            </p>
+
+            <p>
+                Then in 2012, something happened that the research community still talks about.
+            </p>
+
+            <p>
+                ImageNet is a competition where researchers build systems to recognize
+                objects in images — cats, dogs, cars, chairs — across a million labeled photographs.
+                For years, the best systems made errors on roughly 26% of images.
+                Progress was slow and incremental.
+            </p>
+
+            <p>
+                In 2012, a team led by Geoffrey Hinton submitted a deep neural network
+                called AlexNet. It achieved an error rate of 15%. The gap between first
+                and second place was larger than the total improvement seen in the
+                previous five years combined.
+            </p>
+
+            <p>
+                The field never looked back.
+            </p>
+
+
+            <!-- The Transformer -->
+            <h2 class="mt-5 mb-3">The Transformer — Attention Changes Everything</h2>
+
+            <p>
+                Deep learning proved it could see. The next challenge was language.
+                Language is harder — words have context, meaning shifts depending on
+                what came before, and relationships can span entire paragraphs.
+            </p>
+
+            <p>
+                In 2017, researchers at Google published a paper titled
+                <em>"Attention Is All You Need."</em>
+                It introduced the transformer architecture.
+            </p>
+
+            <p>
+                The key idea was attention — a mechanism that allows the model to look
+                at every word in a sentence simultaneously and decide which words are
+                most relevant to understanding each other word. Rather than reading
+                left to right like earlier models, a transformer reads everything at once
+                and weighs relationships across the entire input.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body text-center">
+                    <p class="text-secondary mb-2 small">THE ATTENTION MECHANISM — SIMPLIFIED</p>
+                    <p class="text-secondary">
+                        "The <strong class="text-white">bank</strong> by the <strong class="text-white">river</strong>
+                        was steep."
+                    </p>
+                    <p class="text-secondary mb-0">
+                        To understand the word <em>bank</em>, the model attends to <em>river</em>
+                        and learns it means a riverbank — not a financial institution.
+                        Context determines meaning. Attention captures context.
+                    </p>
+                </div>
+            </div>
+
+            <p>
+                The transformer was not just better. It was fundamentally more scalable.
+                The more data you trained it on, the better it got. And unlike previous
+                architectures, it could be made much, much larger without breaking.
+            </p>
+
+
+            <!-- LLMs -->
+            <h2 class="mt-5 mb-3">Large Language Models — Scale as a Strategy</h2>
+
+            <p>
+                What followed was a race to scale. If transformers got better with more
+                data and more parameters, researchers asked: what happens if we make them
+                very large? What if we train them on essentially the entire internet?
+            </p>
+
+            <p>
+                The results surprised even the people building them.
+            </p>
+
+            <p>
+                Models trained purely to predict the next word began to exhibit capabilities
+                nobody had explicitly programmed. They could reason through problems.
+                They could write code. They could translate languages they had never been
+                explicitly taught to translate. They could summarize, explain, compare,
+                and argue.
+            </p>
+
+            <p>
+                These were Large Language Models — LLMs. And GPT-3, released in 2020,
+                followed by ChatGPT in 2022, made them visible to the world.
+            </p>
+
+            <div class="card border-success my-5">
+                <div class="card-body p-4 text-center">
+                    <p class="lead fw-semibold mb-0">
+                        An LLM is not programmed to answer questions.
+                        It learned — from billions of examples of human language —
+                        what a good answer looks like.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- What We Built -->
+            <h2 class="mt-5 mb-3">What We Built on Top</h2>
+
+            <p>
+                LLMs are extraordinarily capable — but they have limitations.
+                They do not know what happened yesterday. They can hallucinate facts.
+                They cannot take actions in the world. They do not have access to
+                your private data.
+            </p>
+
+            <p>
+                So engineers and researchers built systems around them to extend what
+                they could do. Three of the most important are RAG, Agentic AI,
+                and Knowledge Graphs.
+            </p>
+
+
+            <!-- RAG -->
+            <div class="card shadow-sm mb-4 mt-4">
+                <div class="card-body p-4">
+
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-search fs-2 text-success me-3"></i>
+                        <div>
+                            <h4 class="mb-0">RAG — Retrieval Augmented Generation</h4>
+                            <p class="text-secondary mb-0 small">Grounding the LLM in real, current information</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        An LLM's knowledge is frozen at the time it was trained. It cannot
+                        answer questions about last week's news, your company's internal documents,
+                        or your customer's account data.
+                    </p>
+
+                    <p class="mb-0">
+                        RAG solves this by adding a retrieval step. Before the LLM answers,
+                        a system searches a knowledge base — documents, databases, APIs —
+                        and retrieves the most relevant information. That information is handed
+                        to the LLM as context. The LLM reasons over it and answers.
+                        The result is an AI that can speak to your specific data,
+                        not just general knowledge.
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- Agents -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-4">
+
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-diagram-3 fs-2 text-success me-3"></i>
+                        <div>
+                            <h4 class="mb-0">Agentic AI — LLMs That Take Action</h4>
+                            <p class="text-secondary mb-0 small">From answering questions to completing tasks</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        An LLM in isolation responds. An agent acts. An agentic system
+                        gives the LLM access to tools — search engines, code interpreters,
+                        APIs, databases — and lets it decide which tools to use and in what
+                        order to complete a goal.
+                    </p>
+
+                    <p class="mb-0">
+                        You give an agent a task: <em>"Research the top five competitors,
+                        summarize their pricing, and draft a comparison report."</em>
+                        The agent breaks the task into steps, searches the web, reads pages,
+                        extracts data, and writes the report — without being told exactly
+                        how to do each step. The LLM is the reasoning engine. The tools
+                        are its hands.
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- Knowledge Graphs -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-4">
+
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-share fs-2 text-success me-3"></i>
+                        <div>
+                            <h4 class="mb-0">Knowledge Graphs — Structure Meets Language</h4>
+                            <p class="text-secondary mb-0 small">When relationships between things matter as much as the things themselves</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        A knowledge graph is a structured representation of entities and
+                        the relationships between them. A person works at a company.
+                        A company operates in an industry. An industry is regulated by a law.
+                        These connections carry meaning that plain text does not capture well.
+                    </p>
+
+                    <p class="mb-0">
+                        Graph RAG combines knowledge graphs with LLMs. Instead of retrieving
+                        raw text, the system traverses a graph — following relationships —
+                        and gives the LLM structured, connected context. This is especially
+                        powerful for complex enterprise knowledge where understanding
+                        how things relate to each other is as important as the facts themselves.
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- Closing -->
+            <p>
+                We went from a single perceptron drawing a straight line to systems
+                that reason, retrieve, act, and navigate complex webs of knowledge.
+                The journey from one neuron to a billion parameters was long.
+                The ecosystem that emerged from it is vast.
+            </p>
+
+            <p>
+                But at the centre of all of it — RAG, agents, knowledge graphs —
+                sits a single component. Remove it, and everything stops.
+            </p>
+
+            <blockquote class="border-start border-success border-4 ps-3 mt-5">
+                <p class="mb-3">
+                    The Large Language Model is the engine of the modern AI stack.
+                </p>
+                <p class="mb-0">
+                    Which raises a question worth asking:
+                    is it the only engine that could sit there?
+                </p>
+            </blockquote>
+
+        </div>
+
+    </div>
+
+</div>

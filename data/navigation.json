@@ -19,6 +19,30 @@
                     "enabled": true
                 },
                 {
+                    "title": "You Give It Examples. It Finds the Rule.",
+                    "url": "/journal/you-give-it-examples-it-finds-the-rule",
+                    "view": "journal-you-give-it-examples-it-finds-the-rule",
+                    "enabled": true
+                },
+                {
+                    "title": "It Could Not Solve XOR. That Changed Everything.",
+                    "url": "/journal/it-could-not-solve-xor-that-changed-everything",
+                    "view": "journal-it-could-not-solve-xor-that-changed-everything",
+                    "enabled": true
+                },
+                {
+                    "title": "From One Neuron to a Billion — And What We Built on Top",
+                    "url": "/journal/from-one-neuron-to-a-billion",
+                    "view": "journal-from-one-neuron-to-a-billion",
+                    "enabled": true
+                },
+                {
+                    "title": "LLM Is the Heart. But Is It the Only One?",
+                    "url": "/journal/llm-is-the-heart-but-is-it-the-only-one",
+                    "view": "journal-llm-is-the-heart-but-is-it-the-only-one",
+                    "enabled": true
+                },
+                {
                     "title": "AI",
                     "url": "/journal/ai",
                     "view": "journal-ai",

@@ -1,0 +1,283 @@
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <!-- Header -->
+            <div class="mb-5">
+
+                <span class="badge bg-success px-3 py-2">JOURNAL</span>
+
+                <h1 class="display-5 fw-bold mt-3">
+                    It Could Not Solve XOR. That Changed Everything.
+                </h1>
+
+                <p class="text-secondary mt-2">
+                    The problem that broke AI — and then fixed it.
+                </p>
+
+            </div>
+
+
+            <!-- The Boom -->
+            <p>
+                When Frank Rosenblatt demonstrated the perceptron in 1957, the reaction
+                was extraordinary. Here was a machine that could learn. Not a machine
+                that executed rules you wrote — a machine that discovered rules on its own.
+            </p>
+
+            <p>
+                The New York Times ran a story. The US Navy funded the research.
+                People began to imagine machines that could recognize faces, understand speech,
+                perhaps one day think. The excitement was real.
+            </p>
+
+            <p>
+                And then someone asked a simple question.
+            </p>
+
+            <blockquote class="border-start border-secondary border-4 ps-3 my-4">
+                <p class="mb-0 fst-italic">
+                    Can it solve XOR?
+                </p>
+            </blockquote>
+
+
+            <!-- XOR -->
+            <h2 class="mt-5 mb-3">The XOR Problem</h2>
+
+            <p>
+                XOR — exclusive OR — is a simple logic gate. It returns 1 when the inputs
+                are different, and 0 when they are the same.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <p class="text-secondary mb-2 small">TRUTH TABLE — XOR GATE</p>
+                    <table class="table table-dark table-bordered mb-0">
+                        <thead>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>Output</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0</td><td>0</td><td>0</td></tr>
+                            <tr class="table-success"><td>0</td><td>1</td><td>1</td></tr>
+                            <tr class="table-success"><td>1</td><td>0</td><td>1</td></tr>
+                            <tr><td>1</td><td>1</td><td>0</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <p>
+                At first glance, it looks like just another logic gate. Not much different
+                from AND or OR. Surely the perceptron can handle it.
+            </p>
+
+            <p>
+                It could not.
+            </p>
+
+
+            <!-- Why it fails -->
+            <h2 class="mt-5 mb-3">Why a Single Perceptron Cannot Solve XOR</h2>
+
+            <p>
+                To understand why, think about what a perceptron actually does.
+                It draws a straight line.
+            </p>
+
+            <p>
+                When a perceptron learns, it is essentially finding a straight line that
+                separates the 0s from the 1s in the input space. For the AND gate,
+                this is easy — the only 1 sits in one corner, cleanly separated from
+                the three 0s. A single line can do it.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <div class="row g-4">
+
+                        <div class="col-md-6 text-center">
+                            <p class="text-secondary mb-2 small">AND GATE — LINEARLY SEPARABLE</p>
+                            <p class="text-secondary small">
+                                One straight line can separate the 1 (bottom-right)
+                                from the three 0s. A single perceptron works.
+                            </p>
+                            <span class="badge bg-success p-2">Perceptron can solve this ✓</span>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <p class="text-secondary mb-2 small">XOR GATE — NOT LINEARLY SEPARABLE</p>
+                            <p class="text-secondary small">
+                                The 1s sit in opposite corners. No single straight line
+                                can separate them from the 0s.
+                            </p>
+                            <span class="badge bg-danger p-2">Perceptron cannot solve this ✗</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                In 1969, Marvin Minsky and Seymour Papert — two of the most respected
+                researchers in the field — published a book called <em>Perceptrons</em>.
+                In it, they proved mathematically that a single-layer perceptron could
+                never solve XOR.
+            </p>
+
+            <p>
+                The research community took it seriously. Funding dried up.
+                Projects were cancelled. The enthusiasm that had surrounded AI for over
+                a decade collapsed almost overnight.
+            </p>
+
+            <p>
+                This period became known as the first AI winter.
+            </p>
+
+
+            <!-- The Winter -->
+            <h2 class="mt-5 mb-3">The Years of Silence</h2>
+
+            <p>
+                For nearly two decades, AI research limped along with minimal funding
+                and minimal interest. The perceptron, once celebrated as the future of
+                intelligent machines, was largely abandoned.
+            </p>
+
+            <p>
+                The irony is that the solution was never far away.
+                Minsky and Papert had not proven that machines could not learn.
+                They had proven that a <em>single</em> perceptron had limits.
+            </p>
+
+            <p>
+                The question nobody had asked loudly enough was:
+            </p>
+
+            <blockquote class="border-start border-secondary border-4 ps-3 my-4">
+                <p class="mb-0 fst-italic">
+                    What if we used more than one?
+                </p>
+            </blockquote>
+
+
+            <!-- The Breakthrough -->
+            <h2 class="mt-5 mb-3">The Breakthrough — Hidden Layers</h2>
+
+            <p>
+                In 1986, David Rumelhart, Geoffrey Hinton, and Ronald Williams published
+                a landmark paper introducing backpropagation — an efficient method for
+                training networks of multiple perceptrons stacked in layers.
+            </p>
+
+            <p>
+                The idea was simple but profound. If one perceptron draws one straight line,
+                two layers of perceptrons can draw two lines. Three layers can draw curves.
+                More layers can draw boundaries of any shape — any pattern imaginable.
+            </p>
+
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <p class="text-secondary mb-3 small">FROM PERCEPTRON TO NEURAL NETWORK</p>
+                    <div class="row text-center g-3">
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <p class="text-secondary mb-1 small">INPUT LAYER</p>
+                                    <p class="mb-0">A, B</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 d-flex align-items-center justify-content-center">
+                            <span class="text-success">→</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-success h-100">
+                                <div class="card-body">
+                                    <p class="text-secondary mb-1 small">HIDDEN LAYER</p>
+                                    <p class="mb-0">Multiple perceptrons learning intermediate patterns</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 d-flex align-items-center justify-content-center">
+                            <span class="text-success">→</span>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <p class="text-secondary mb-1 small">OUTPUT LAYER</p>
+                                    <p class="mb-0">0 or 1</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                A two-layer network solved XOR immediately. Not because anyone wrote the rule —
+                but because the network, given the training examples, found a way to
+                decompose the problem into two simpler problems and combine the answers.
+            </p>
+
+            <p>
+                This was not just a fix for XOR. It was something far bigger.
+            </p>
+
+
+            <!-- The Real Significance -->
+            <h2 class="mt-5 mb-3">What This Actually Meant</h2>
+
+            <p>
+                A theorem called the Universal Approximation Theorem states that a neural
+                network with at least one hidden layer can approximate any function —
+                given enough neurons and enough training data.
+            </p>
+
+            <p>
+                Any function. Any pattern. Any relationship between inputs and outputs,
+                no matter how complex, no matter how non-linear, no matter how impossible
+                to describe with explicit rules.
+            </p>
+
+            <p>
+                The single perceptron was limited. The neural network was not.
+            </p>
+
+            <p>
+                What Minsky and Papert had shown was not a dead end.
+                It was a constraint that, once understood, pointed directly to the solution.
+                You don't need one perceptron. You need many — connected in layers,
+                learning from each other, building increasingly abstract representations
+                of the patterns in the data.
+            </p>
+
+
+            <!-- Closing -->
+            <blockquote class="border-start border-success border-4 ps-3 mt-5">
+                <p class="mb-3">
+                    The AI winter lasted nearly two decades. It ended not because
+                    someone invented something entirely new, but because someone asked
+                    a different question.
+                </p>
+                <p class="mb-3">
+                    Not — can a perceptron solve XOR?
+                </p>
+                <p class="mb-0">
+                    But — what can many perceptrons, working together, solve?
+                    The answer, it turned out, was almost everything.
+                </p>
+            </blockquote>
+
+        </div>
+
+    </div>
+
+</div>
