@@ -8,7 +8,7 @@ let navigationData = null;
 async function loadNavigation() {
 
     const response =
-        await fetch(`data/navigation.json?v=${Date.now()}`);
+        await fetch("data/navigation.json");
 
     navigationData =
         await response.json();
