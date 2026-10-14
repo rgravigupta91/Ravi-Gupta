@@ -64,6 +64,9 @@ function initializeView(view) {
         case "contact":
             initializeContact();
             break;
+        case "home":
+            initializeHome();
+            break;
 
     }
 
