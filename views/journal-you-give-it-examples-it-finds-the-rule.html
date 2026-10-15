@@ -189,7 +189,225 @@
             </div>
 
 
-            <!-- The Mental Model -->
+            <!-- Code Demo -->
+            <h2 class="mt-5 mb-3">Let Me Show You This in Code</h2>
+
+            <p>
+                Before we look at the code, a quick note. There are a few terms you will see:
+            </p>
+
+            <ul class="text-secondary mb-4">
+                <li><strong class="text-white">Weights</strong> — numbers the perceptron adjusts as it learns. Think of them as dials it slowly tunes.</li>
+                <li><strong class="text-white">Bias</strong> — an extra adjustment number, like a baseline.</li>
+                <li><strong class="text-white">Learning rate</strong> — how big each adjustment step is.</li>
+                <li><strong class="text-white">Epochs</strong> — one full pass through all the examples.</li>
+            </ul>
+
+            <p>
+                You do not need to understand every line of the code below.
+                The point is not the code. The point is what you feed it — and what comes out.
+            </p>
+
+
+            <!-- Part 1 -->
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <p class="text-secondary mb-1 small">PART 1 — THE PERCEPTRON</p>
+                    <p class="text-secondary mb-3 small">
+                        A generic class that can train on any data and predict after learning.
+                        It starts with random weights and has no knowledge of any rule.
+                    </p>
+                    <pre style="color:#86efac; font-size: 0.85rem; overflow-x:auto;">import random
+
+class Perceptron:
+
+    def __init__(self, lr=0.1):
+        self.w1   = random.uniform(-1, 1)
+        self.w2   = random.uniform(-1, 1)
+        self.bias = random.uniform(-1, 1)
+        self.lr   = lr
+
+    def _output(self, a, b):
+        return 1 if (a * self.w1) + (b * self.w2) + self.bias >= 0.5 else 0
+
+    def train(self, a, b, expected):
+        output    = self._output(a, b)
+        error     = expected - output
+        self.w1   += self.lr * error * a
+        self.w2   += self.lr * error * b
+        self.bias += self.lr * error
+        return output
+
+    def fit(self, data):
+        epoch = 0
+        while True:
+            epoch += 1
+            correct = sum(self.train(a, b, exp) == exp for a, b, exp in data)
+            print(f"Epoch {epoch:3d} | w1={self.w1:.3f}  w2={self.w2:.3f}  bias={self.bias:.3f} | {correct}/4 correct")
+            if correct == len(data):
+                print(f"Done in {epoch} epochs.\n")
+                break
+
+    def predict(self, a, b):
+        return self._output(a, b)</pre>
+                </div>
+            </div>
+
+            <p>
+                Notice — this class knows nothing about AND gates or OR gates.
+                It knows nothing about logic at all. It is just a machine that
+                takes examples and adjusts its internal numbers until it stops
+                making mistakes.
+            </p>
+
+
+            <!-- Part 2 -->
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <p class="text-secondary mb-1 small">PART 2 — TRAIN ON AND GATE DATA</p>
+                    <p class="text-secondary mb-3 small">
+                        We give it 4 examples. Inputs and their expected outputs. Nothing else.
+                    </p>
+                    <pre style="color:#86efac; font-size: 0.85rem; overflow-x:auto;">and_data = [
+    (0, 0, 0),
+    (0, 1, 0),
+    (1, 0, 0),
+    (1, 1, 1),
+]
+
+print("=== AND Gate ===")
+p1 = Perceptron()
+p1.fit(and_data)
+
+print(f"AND(0, 0) = {p1.predict(0, 0)}")
+print(f"AND(0, 1) = {p1.predict(0, 1)}")
+print(f"AND(1, 0) = {p1.predict(1, 0)}")
+print(f"AND(1, 1) = {p1.predict(1, 1)}")</pre>
+                </div>
+            </div>
+
+            <p>
+                Run this and you will see it training — making mistakes, adjusting,
+                making fewer mistakes, adjusting again — until all four answers are correct.
+                We never told it the rule. We gave it the examples and it found the rule.
+            </p>
+
+
+            <!-- Part 3 -->
+            <div class="card bg-dark border-secondary my-4">
+                <div class="card-body">
+                    <p class="text-secondary mb-1 small">PART 3 — NOW TRAIN ON OR GATE DATA</p>
+                    <p class="text-secondary mb-3 small">
+                        Same class. Same code. Only the data changes.
+                    </p>
+                    <pre style="color:#86efac; font-size: 0.85rem; overflow-x:auto;">or_data = [
+    (0, 0, 0),
+    (0, 1, 1),
+    (1, 0, 1),
+    (1, 1, 1),
+]
+
+print("=== OR Gate ===")
+p2 = Perceptron()
+p2.fit(or_data)
+
+print(f"OR(0, 0) = {p2.predict(0, 0)}")
+print(f"OR(0, 1) = {p2.predict(0, 1)}")
+print(f"OR(1, 0) = {p2.predict(1, 0)}")
+print(f"OR(1, 1) = {p2.predict(1, 1)}")</pre>
+                </div>
+            </div>
+
+            <p>
+                The Perceptron class did not change. Not a single line.
+                We gave it different examples and it learned a completely different rule.
+            </p>
+
+            <div class="card border-success my-5">
+                <div class="card-body p-4 text-center">
+                    <p class="lead fw-semibold mb-2">
+                        It still has no idea what AND or OR means.
+                    </p>
+                    <p class="lead text-secondary mb-0">
+                        It only knows: given these inputs, this output was expected.
+                        Given those inputs, that output was expected.
+                        And somewhere in those adjustments — the rule emerged.
+                    </p>
+                </div>
+            </div>
+
+            <p>
+                Here is what I find quietly fascinating about this.
+                After training, the perceptron has a set of weights and a bias
+                that correctly answer every question. But if you ask it
+                <em>why</em> those numbers work — it cannot tell you.
+                We cannot tell you either. The rule is there. It is working.
+                But it is not written anywhere we can read.
+            </p>
+
+
+            <!-- Generalisation -->
+            <h2 class="mt-5 mb-3">It Is Not Just AND and OR</h2>
+
+            <p>
+                We used AND and OR gates because they are simple. Binary inputs — 0 or 1.
+                Binary output — 0 or 1. Easy to verify. Easy to reason about.
+            </p>
+
+            <p>
+                But the perceptron itself does not care that the inputs were 0s and 1s.
+                It only ever sees numbers. It multiplies, adds, and adjusts.
+                What those numbers represent is entirely up to you.
+            </p>
+
+            <p>
+                You could feed it temperature and humidity — and have it learn
+                whether conditions indicate rain or no rain. You could feed it
+                hours studied and hours slept — and have it learn whether a student
+                is likely to pass or fail. You could feed it any two measurements
+                where a pattern exists — and it will find that pattern,
+                without you ever writing the rule.
+            </p>
+
+            <div class="card border-secondary my-4">
+                <div class="card-body">
+                    <div class="row text-center g-3">
+                        <div class="col-md-5">
+                            <p class="text-secondary mb-1 small">WHAT WE USED</p>
+                            <p class="fw-semibold mb-0">Binary inputs (0, 1)<br>Binary output (0, 1)</p>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-center justify-content-center">
+                            <span class="text-success fs-4">→</span>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="text-secondary mb-1 small">WHAT IT CAN DO</p>
+                            <p class="fw-semibold mb-0">Any numerical inputs<br>Any binary decision</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                The only condition is that a pattern must exist. If the relationship
+                between inputs and output is random — no structure, no consistency —
+                the perceptron cannot learn it. Nobody can. But wherever a rule
+                quietly lives inside data, the perceptron will find its way to it.
+            </p>
+
+            <div class="card border-success my-5">
+                <div class="card-body p-4 text-center">
+                    <p class="lead fw-semibold mb-2">
+                        You do not need to know the rule to use it.
+                    </p>
+                    <p class="lead text-secondary mb-0">
+                        Give the machine enough examples. It will find the pattern.
+                        And once found, it will predict — correctly — even on data it has never seen before.
+                        The rule does not need to be written. It just needs to exist in the data.
+                    </p>
+                </div>
+            </div>
+
+
             <h2 class="mt-5 mb-3">Two Completely Different Ways of Thinking</h2>
 
             <p>
@@ -247,6 +465,66 @@
             </p>
 
 
+            <!-- The Line Behind the Decision -->
+            <h2 class="mt-5 mb-3">The Line Behind the Decision</h2>
+
+            <p>
+                Here is something worth pausing on. The core equation of the perceptron —
+                <code class="text-success">w1 × A + w2 × B + bias</code> — is not just arithmetic.
+                It is the equation of a straight line in 2D space.
+            </p>
+
+            <p>
+                When the perceptron trains, it adjusts its weights, which moves and rotates
+                that line. When training is complete, the line sits in exactly the right
+                place — all the 0s on one side, all the 1s on the other.
+                The decision boundary is not code. It is a line drawn through data.
+            </p>
+
+            <div class="d-flex justify-content-center my-4">
+                <div class="card bg-dark border-secondary" style="max-width:300px;width:100%;">
+                    <div class="card-body text-center p-3">
+                        <p class="text-secondary small mb-3">AND GATE — DECISION BOUNDARY</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" style="max-width:220px;width:100%;height:auto;">
+                            <line x1="45" y1="185" x2="195" y2="185" stroke="#555" stroke-width="1.5"/>
+                            <line x1="45" y1="30" x2="45" y2="185" stroke="#555" stroke-width="1.5"/>
+                            <text x="115" y="208" text-anchor="middle" fill="#666" font-size="11">A</text>
+                            <text x="17" y="115" text-anchor="middle" fill="#666" font-size="11" transform="rotate(-90,17,115)">B</text>
+                            <text x="45" y="200" text-anchor="middle" fill="#555" font-size="10">0</text>
+                            <text x="185" y="200" text-anchor="middle" fill="#555" font-size="10">1</text>
+                            <text x="32" y="189" text-anchor="end" fill="#555" font-size="10">0</text>
+                            <text x="32" y="49" text-anchor="end" fill="#555" font-size="10">1</text>
+                            <line x1="45" y1="115" x2="185" y2="115" stroke="#252530" stroke-width="1"/>
+                            <line x1="115" y1="45" x2="115" y2="185" stroke="#252530" stroke-width="1"/>
+                            <line x1="105" y1="35" x2="197" y2="127" stroke="#22c55e" stroke-width="2" stroke-dasharray="8,4" opacity="0.9"/>
+                            <text x="82" y="168" text-anchor="middle" fill="#f87171" font-size="10" opacity="0.8">0s here</text>
+                            <text x="160" y="68" text-anchor="middle" fill="#4ade80" font-size="10" opacity="0.8">1s here</text>
+                            <circle cx="45" cy="185" r="11" fill="#f87171" stroke="#fca5a5" stroke-width="1.5"/>
+                            <text x="45" y="185" text-anchor="middle" dominant-baseline="central" fill="white" font-size="9" font-weight="bold">0</text>
+                            <circle cx="45" cy="45" r="11" fill="#f87171" stroke="#fca5a5" stroke-width="1.5"/>
+                            <text x="45" y="45" text-anchor="middle" dominant-baseline="central" fill="white" font-size="9" font-weight="bold">0</text>
+                            <circle cx="185" cy="185" r="11" fill="#f87171" stroke="#fca5a5" stroke-width="1.5"/>
+                            <text x="185" y="185" text-anchor="middle" dominant-baseline="central" fill="white" font-size="9" font-weight="bold">0</text>
+                            <circle cx="185" cy="45" r="11" fill="#4ade80" stroke="#86efac" stroke-width="1.5"/>
+                            <text x="185" y="45" text-anchor="middle" dominant-baseline="central" fill="#052e16" font-size="9" font-weight="bold">1</text>
+                        </svg>
+                        <p class="text-secondary small mt-3 mb-0">One line separates all 0s from the single 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                AND and OR both work because they are <em>linearly separable</em> — a single
+                straight line can place all the 0s on one side and all the 1s on the other.
+                That is the geometric reality of what the perceptron discovers during training.
+            </p>
+
+            <p>
+                But this raises a question worth sitting with.
+                What happens when a problem cannot be separated by any straight line?
+            </p>
+
+
             <!-- Closing -->
             <blockquote class="border-start border-success border-4 ps-3 mt-5">
                 <p class="mb-3">
@@ -254,11 +532,19 @@
                     without being told what to learn.
                 </p>
                 <p class="mb-0">
-                    But a single perceptron has limits. And those limits, when they were
-                    discovered, nearly ended AI research entirely.
-                    That is the story I want to tell next.
+                    But it can only draw one line. And not every problem can be solved
+                    with a line. That is the story I want to tell next.
                 </p>
             </blockquote>
+
+            <div class="d-flex justify-content-end mt-5 pt-4 border-top border-secondary">
+                <a href="#"
+                   onclick="event.preventDefault(); navigateByUrl('/journal/it-could-not-solve-xor-that-changed-everything')"
+                   class="text-decoration-none text-end">
+                    <p class="text-secondary small mb-1">Next in this series</p>
+                    <p class="text-success fw-semibold mb-0">It Could Not Solve XOR. That Changed Everything. &rarr;</p>
+                </a>
+            </div>
 
         </div>
 
