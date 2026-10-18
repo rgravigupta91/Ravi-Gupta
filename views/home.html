@@ -7,7 +7,7 @@
     <section class="text-center mb-5">
 
         <h1 class="display-4 fw-bold">
-            AI Engineer | Enterprise Software Engineer
+            AI Engineer | Generative AI | Agentic AI | SAP S/4HANA
         </h1>
 
         <p class="lead mt-3">
@@ -21,12 +21,13 @@
 
         <div class="hero-buttons mt-4 d-grid gap-3 d-md-flex justify-content-md-center">
 
-            <a href="#projects"
+            <a href="#"
+            onclick="event.preventDefault(); navigateByUrl('/projects')"
             class="btn btn-success btn-lg">
                 View Projects
             </a>
 
-            <a href="assets/resume/Ravi kumar Gupta - (12 Years).pdf"
+            <a href="assets/resume/Ravi Kumar Gupta - SAP AI.pdf"
             target="_blank"
             class="btn btn-outline-light btn-lg">
                 Download Resume
@@ -50,11 +51,12 @@
         </h2>
 
         <p>
-            I am an Enterprise Software Engineer with over <span class="experience"></span>+ years of
-            experience designing and developing business-critical enterprise
-            applications. Throughout my career, I have worked extensively on
-            backend architecture, data-intensive applications, performance
-            optimization, enterprise integrations, and SAP technologies.
+            I am an AI Engineer with over <span class="experience"></span>+ years of enterprise
+            software engineering behind me. My career began building business-critical SAP
+            applications — backend architecture, data-intensive systems, performance
+            optimization, and enterprise integrations at scale. Today I apply that
+            engineering foundation to build intelligent systems using Generative AI,
+            Agentic AI, Machine Learning, and Large Language Models.
         </p>
 
         <p>
@@ -144,6 +146,47 @@
 
     </section>
 
+    <!-- Engineering Impact -->
+
+    <section class="mb-5">
+
+        <h2 class="section-title">Engineering Impact</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-speedometer2 fs-1 text-success"></i>
+                        <h3 class="mt-3">25 min &rarr; 26 sec</h3>
+                        <p class="text-secondary mt-2">
+                            Reduced an AMDP API response time from 25 minutes to 26 seconds
+                            by restructuring the architecture — pushing computation to the
+                            HANA database layer using SQL pushdown, CDS views, and table functions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-arrow-down-circle fs-1 text-success"></i>
+                        <h3 class="mt-3">80% Faster</h3>
+                        <p class="text-secondary mt-2">
+                            Assigned to add parallel processing to a pricing migration report
+                            timing out on billions of records. Paused, analysed the real problem,
+                            and proposed an architecture change instead. Result: 80% reduction
+                            in execution time — no parallel processing needed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- Featured Projects -->
 
     <section id="projects" class="mb-5">
@@ -160,13 +203,12 @@
 
                     <div class="card-body">
 
-                        <h4>CodeAtlas</h4>
+                        <h4>DeepTicker</h4>
 
                         <p>
-                            AI-powered architecture intelligence platform that
-                            transforms business requirements and legacy code
-                            into architecture diagrams using Agentic AI and
-                            Large Language Models.
+                            Indian stock price prediction platform. Trains sector-specific
+                            Transformer neural networks across 11 NSE market sectors and
+                            serves next-day predictions with ATR-based stop-loss via FastAPI.
                         </p>
 
                     </div>
@@ -181,13 +223,12 @@
 
                     <div class="card-body">
 
-                        <h4>DeepTicker</h4>
+                        <h4>CodeAtlas</h4>
 
                         <p>
-                            A stock intelligence platform built using Machine
-                            Learning and Deep Learning to analyze market data,
-                            generate predictions, and evolve towards financial
-                            intelligence.
+                            AI assistant that analyses code and builds architecture diagrams
+                            through conversation. Built for SAP ABAP legacy codebases where
+                            documentation was never written or fell out of sync.
                         </p>
 
                     </div>
@@ -205,10 +246,10 @@
                         <h4>Customer360</h4>
 
                         <p>
-                            Recommendation engine developed as part of my
-                            M.Tech Capstone Project using clustering,
-                            collaborative filtering, and neural recommendation
-                            models.
+                            Cross-channel retail recommendation engine. Segments customers
+                            into behavioural clusters and serves personalised product
+                            recommendations — built so any subscribing business benefits
+                            from another's data from day one.
                         </p>
 
                     </div>

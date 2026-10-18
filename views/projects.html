@@ -1,1 +1,268 @@
-Projects
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <!-- Header -->
+            <div class="mb-5">
+                <span class="badge bg-success px-3 py-2">PROJECTS</span>
+                <h1 class="display-5 fw-bold mt-3">Things I've Built</h1>
+                <p class="text-secondary mt-2">
+                    Enterprise AI, AI agents, deep learning, and recommendation systems.
+                </p>
+            </div>
+
+
+            <!-- Risk Assessment -->
+            <div class="card shadow-sm mb-5">
+                <div class="card-body p-4 p-md-5">
+
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-shield-check fs-1 text-success me-4 mt-1"></i>
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <h2 class="mb-0">Risk Assessment</h2>
+                                <span class="badge bg-success" style="font-size:0.65rem; letter-spacing:0.05em;">ENTERPRISE</span>
+                            </div>
+                            <p class="text-secondary mb-0">Semantic intelligence over ABAP code quality — built at SAP Labs</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        ABAP ATC (ABAP Test Cockpit) surfaces code quality findings across an SAP codebase.
+                        But a finding code and its message, on their own, do not explain why it matters in
+                        your specific context, what patterns caused it, or how to approach fixing it.
+                        Looking up a finding by code is a database query. Understanding what it means in
+                        the context of your code requires reasoning over related information — that is a
+                        different problem entirely.
+                    </p>
+
+                    <p>
+                        This project built a RAG-based semantic search solution over ATC content using
+                        SAP HANA Cloud as the vector store. Developers describe what they are seeing or
+                        ask a question in plain language. The system retrieves semantically relevant
+                        findings, explanations, and related patterns, then provides contextual answers
+                        through an LLM. Document processing, embedding, and semantic indexing are handled
+                        through FastAPI services built in Python.
+                    </p>
+
+                    <p>
+                        The capability is integrated back into ABAP via OAuth 2.0, making it callable
+                        directly from within SAP systems. Built as part of an enterprise AI initiative
+                        at SAP Labs — production context, real codebase, real findings data.
+                    </p>
+
+                    <div class="mb-4">
+                        <span class="badge bg-secondary me-1 mb-1">Python</span>
+                        <span class="badge bg-secondary me-1 mb-1">FastAPI</span>
+                        <span class="badge bg-secondary me-1 mb-1">RAG</span>
+                        <span class="badge bg-secondary me-1 mb-1">SAP HANA Cloud</span>
+                        <span class="badge bg-secondary me-1 mb-1">Embeddings</span>
+                        <span class="badge bg-secondary me-1 mb-1">ABAP</span>
+                        <span class="badge bg-secondary me-1 mb-1">OAuth 2.0</span>
+                    </div>
+
+                    <span class="text-secondary small"><i class="bi bi-lock me-1"></i>Internal project — source code not public</span>
+
+                </div>
+            </div>
+
+
+            <!-- DeepTicker -->
+            <div class="card shadow-sm mb-5">
+                <div class="card-body p-4 p-md-5">
+
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-graph-up-arrow fs-1 text-success me-4 mt-1"></i>
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <h2 class="mb-0">DeepTicker</h2>
+                                <span class="badge border border-success text-success" style="font-size:0.65rem; letter-spacing:0.05em;">IN PROGRESS</span>
+                            </div>
+                            <p class="text-secondary mb-0">Predicting Indian stock prices to automate personal trading — and eventually, much more</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        The goal behind DeepTicker is specific. If the model can predict next-day closing prices
+                        with enough accuracy, the plan is to automate trading decisions around it — personal
+                        stop-loss strategies first. Then, eventually, a registered company running automated
+                        strategies: earn passively, invest in small businesses as a silent partner, take a share
+                        of the profit with no management overhead. The platform needs to work well enough to be
+                        trusted with real capital. That is the north star.
+                    </p>
+
+                    <p>
+                        Rather than training one model across all NSE stocks, DeepTicker trains eleven separate
+                        Transformer neural networks — one per market sector — so each model learns the price
+                        behaviour specific to that domain. The prediction pipeline is built as composable
+                        sklearn-compatible transformers: 60-day lookback sequence construction, feature scaling,
+                        and inverse transformation to recover real prices from normalised predictions. The
+                        architecture is designed for experimentation — add a new feature in one place and the
+                        pipeline adapts everywhere, without changes scattered across the codebase.
+                    </p>
+
+                    <p>
+                        The backend uses a configuration-driven database layer: swap MySQL for any other
+                        database by updating a config file, and every API endpoint works automatically.
+                        New tables get read/write/update support out of the box. The API is also exposed as
+                        an MCP server, making predictions directly callable from AI agents.
+                    </p>
+
+                    <p>
+                        End-to-end prediction works today — select any NSE stock, the system fetches its
+                        sector, loads the corresponding model, and returns a predicted next-day close price
+                        alongside an ATR-based stop-loss level. The frontend is a vanilla JavaScript SPA
+                        for stock data management and prediction display. The 80%+ accuracy target — the
+                        threshold needed to trust it with real money — is the active work.
+                    </p>
+
+                    <div class="mb-4">
+                        <span class="badge bg-secondary me-1 mb-1">Python</span>
+                        <span class="badge bg-secondary me-1 mb-1">TensorFlow / Keras</span>
+                        <span class="badge bg-secondary me-1 mb-1">Transformer (custom)</span>
+                        <span class="badge bg-secondary me-1 mb-1">scikit-learn</span>
+                        <span class="badge bg-secondary me-1 mb-1">FastAPI</span>
+                        <span class="badge bg-secondary me-1 mb-1">MySQL</span>
+                        <span class="badge bg-secondary me-1 mb-1">FastMCP</span>
+                        <span class="badge bg-secondary me-1 mb-1">Vanilla JS</span>
+                        <span class="badge bg-secondary me-1 mb-1">yfinance</span>
+                    </div>
+
+                    <a href="https://github.com/rgravigupta91/DeepTicker" target="_blank"
+                       class="btn btn-outline-success btn-sm me-2">
+                        <i class="bi bi-github me-2"></i>Backend
+                    </a>
+                    <a href="https://github.com/rgravigupta91/DeepTicker-UI" target="_blank"
+                       class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-github me-2"></i>Frontend
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- CodeAtlas -->
+            <div class="card shadow-sm mb-5">
+                <div class="card-body p-4 p-md-5">
+
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-diagram-3 fs-1 text-success me-4 mt-1"></i>
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <h2 class="mb-0">CodeAtlas</h2>
+                                <span class="badge bg-secondary" style="font-size:0.65rem; letter-spacing:0.05em;">EXPERIMENT</span>
+                            </div>
+                            <p class="text-secondary mb-0">AI assistant that analyses code and builds architecture diagrams through conversation</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        Large codebases — especially in enterprise environments like SAP ABAP — evolve over
+                        decades. Architecture diagrams either were never created, or fell out of sync as
+                        delivery pressure took priority. Understanding any existing functionality means weeks
+                        of manual code tracing with no map to guide you.
+                    </p>
+
+                    <p>
+                        CodeAtlas lets a developer paste code or describe a feature in plain language.
+                        The agent analyses it — identifying actors, processes, data flows, and integrations —
+                        and drafts a Mermaid diagram in the chat. The user refines it iteratively through
+                        conversation. When it looks right, the user confirms, and the actual diagram image
+                        is rendered. The agent never renders without that confirmation.
+                    </p>
+
+                    <p>
+                        The backend is a FastAPI server running a LangGraph StateGraph, with SQLite
+                        checkpointing for persistent multi-session memory. The Streamlit frontend connects
+                        over HTTP with SSE streaming. Full thread management is implemented — create,
+                        rename, and delete conversations. The LLM provider is configurable via a single
+                        environment file. The next step is fetching ABAP code directly from a connected
+                        SAP system via ADT API, so developers don't have to paste anything manually.
+                    </p>
+
+                    <div class="mb-4">
+                        <span class="badge bg-secondary me-1 mb-1">Python</span>
+                        <span class="badge bg-secondary me-1 mb-1">LangGraph</span>
+                        <span class="badge bg-secondary me-1 mb-1">LangChain</span>
+                        <span class="badge bg-secondary me-1 mb-1">OpenAI GPT-4o</span>
+                        <span class="badge bg-secondary me-1 mb-1">FastAPI</span>
+                        <span class="badge bg-secondary me-1 mb-1">Streamlit</span>
+                        <span class="badge bg-secondary me-1 mb-1">SQLite</span>
+                        <span class="badge bg-secondary me-1 mb-1">Mermaid</span>
+                    </div>
+
+                    <a href="https://github.com/rgravigupta91/CodeAtlas" target="_blank"
+                       class="btn btn-outline-success btn-sm">
+                        <i class="bi bi-github me-2"></i>View on GitHub
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- Customer360 -->
+            <div class="card shadow-sm mb-5">
+                <div class="card-body p-4 p-md-5">
+
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-people fs-1 text-success me-4 mt-1"></i>
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <h2 class="mb-0">Customer360</h2>
+                                <span class="badge bg-secondary" style="font-size:0.65rem; letter-spacing:0.05em;">PROTOTYPE</span>
+                            </div>
+                            <p class="text-secondary mb-0">A cross-channel recommendation platform — no cold start, no data silos</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        Every business building a recommendation system faces the same problem at the start:
+                        no data. The model has nothing to learn from, so early recommendations are useless.
+                        And even after launch, the model only ever sees a slice of a customer's life —
+                        what they bought from that one business, nothing else.
+                    </p>
+
+                    <p>
+                        Customer360 is built on a different idea. A central model trained on data from multiple
+                        businesses across different domains. A person booking a badminton court tells you
+                        something about what they might want to buy. One business generates the signal;
+                        another business benefits from it. Any new company subscribing gets useful predictions
+                        from day one — the cold start problem disappears because the central model already
+                        knows the customer from other channels.
+                    </p>
+
+                    <p>
+                        What exists today is a prototype of the recommendation engine — the foundation the
+                        full vision sits on. It segments customers into sixteen behavioural clusters using
+                        KMeans, then runs a cluster-specific SVD collaborative filtering model to return
+                        ranked product recommendations. Two modes are supported: personalized (phone number
+                        lookup) and generic (demographic input for anonymous visitors). The research layer
+                        explored Neural Collaborative Filtering, TF-IDF, BERT embeddings, and DPMM clustering
+                        across seven Jupyter notebooks before settling on the best-performing approach.
+                        The cross-channel data layer is the next step.
+                    </p>
+
+                    <div class="mb-4">
+                        <span class="badge bg-secondary me-1 mb-1">Python</span>
+                        <span class="badge bg-secondary me-1 mb-1">FastAPI</span>
+                        <span class="badge bg-secondary me-1 mb-1">scikit-surprise (SVD)</span>
+                        <span class="badge bg-secondary me-1 mb-1">scikit-learn</span>
+                        <span class="badge bg-secondary me-1 mb-1">KMeans</span>
+                        <span class="badge bg-secondary me-1 mb-1">HTML / jQuery</span>
+                    </div>
+
+                    <a href="https://github.com/rgravigupta91/Customer360" target="_blank"
+                       class="btn btn-outline-success btn-sm">
+                        <i class="bi bi-github me-2"></i>View on GitHub
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

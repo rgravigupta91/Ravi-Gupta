@@ -1,7 +1,12 @@
 var yearsOfExperience1 = 0;
 function yearsOfExperience() {
-    var startDate = new Date("2014-01-06"); // Replace with your actual start date
-    const currentYear = new Date().getFullYear();
-    yearsOfExperience2 = currentYear - startDate.getFullYear();
+    const startDate = new Date("2014-01-06");
+    const today = new Date();
+    let years = today.getFullYear() - startDate.getFullYear();
+    const anniversaryThisYear = new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate());
+    if (today < anniversaryThisYear) {
+        years--;
+    }
+    yearsOfExperience2 = years;
     return yearsOfExperience2;
 }
