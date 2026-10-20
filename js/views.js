@@ -5,5 +5,7 @@ async function loadView(view){
     const html = await response.text();
     document.getElementById("content").innerHTML = html;
     window.scrollTo(0, 0);
+    initCodeCopyButtons();
+    initTermTooltips();
 
 }

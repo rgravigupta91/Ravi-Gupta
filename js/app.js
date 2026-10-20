@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+async function initApp() {
 
     const segments = window.location.pathname.split("/").filter(Boolean);
 
@@ -12,12 +12,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadNavigation();
 
     initializeNavigation();
-    
     initializeFooter();
+    initThemeToggle();
 
     const route = getInitialRoute();
 
-    // Remove ?route= from URL after initial load
     if (window.location.search.includes("route=")) {
 
         history.replaceState(
@@ -47,18 +46,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await navigateTo(menu, activeLink);
 
-    /* document.querySelectorAll(".footer-nav").forEach(link => {
+}
 
-    link.addEventListener("click", async function (e) {
-
-        e.preventDefault();
-
-        await navigateByUrl(this.dataset.url);
-
-    }); 
-
-}); */
-});
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
 
 function initializeView(view) {
 

@@ -70,14 +70,20 @@
                 In conventional programming, you look at this table and write the rule immediately.
             </p>
 
-            <div class="card bg-dark border-secondary my-4">
-                <div class="card-body">
-                    <p class="text-secondary mb-2 small">CONVENTIONAL CODE</p>
-                    <pre class="mb-0" style="color:#86efac;">def and_gate(A, B):
+            <div class="code-block my-4">
+                <div class="code-block-header">
+                    <div class="code-block-dots">
+                        <span class="dot-red"></span>
+                        <span class="dot-yellow"></span>
+                        <span class="dot-green"></span>
+                    </div>
+                    <span class="code-block-lang">python</span>
+                    <button class="code-block-copy">Copy</button>
+                </div>
+                <pre>def and_gate(A, B):
     if A == 1 and B == 1:
         return 1
     return 0</pre>
-                </div>
             </div>
 
             <p>
@@ -101,14 +107,23 @@
             <h2 class="mt-5 mb-3">The AI Way — The Perceptron</h2>
 
             <p>
-                In 1957, Frank Rosenblatt introduced the perceptron — the simplest building
+                In 1957, Frank Rosenblatt introduced the
+                <span class="term"
+                      data-title="Perceptron"
+                      data-def="The simplest AI model — a single artificial neuron that takes inputs, assigns a weight to each, and learns by adjusting those weights until it consistently gives the right answer."
+                      data-link="">perceptron</span>
+                — the simplest building
                 block of artificial intelligence. It was inspired by how a single neuron in
                 the brain works.
             </p>
 
             <p>
                 A perceptron takes inputs, assigns a weight to each one, adds them up,
-                adds a bias, and passes the result through an activation function.
+                adds a bias, and passes the result through an
+                <span class="term"
+                      data-title="Activation Function"
+                      data-def="A function that decides whether a neuron should fire (output 1) or not (output 0). It converts the raw weighted sum into a final yes/no decision."
+                      data-link="">activation function</span>.
                 If the result crosses a threshold, it fires 1. Otherwise, 0.
             </p>
 
@@ -209,15 +224,17 @@
             </p>
 
 
-            <!-- Part 1 -->
-            <div class="card bg-dark border-secondary my-4">
-                <div class="card-body">
-                    <p class="text-secondary mb-1 small">PART 1 — THE PERCEPTRON</p>
-                    <p class="text-secondary mb-3 small">
-                        A generic class that can train on any data and predict after learning.
-                        It starts with random weights and has no knowledge of any rule.
-                    </p>
-                    <pre style="color:#86efac; font-size: 0.85rem; overflow-x:auto;">import random
+            <div class="code-block my-4">
+                <div class="code-block-header">
+                    <div class="code-block-dots">
+                        <span class="dot-red"></span>
+                        <span class="dot-yellow"></span>
+                        <span class="dot-green"></span>
+                    </div>
+                    <span class="code-block-lang">python — perceptron class</span>
+                    <button class="code-block-copy">Copy</button>
+                </div>
+                <pre>import random
 
 class Perceptron:
 
@@ -250,7 +267,6 @@ class Perceptron:
 
     def predict(self, a, b):
         return self._output(a, b)</pre>
-                </div>
             </div>
 
             <p>
@@ -262,13 +278,17 @@ class Perceptron:
 
 
             <!-- Part 2 -->
-            <div class="card bg-dark border-secondary my-4">
-                <div class="card-body">
-                    <p class="text-secondary mb-1 small">PART 2 — TRAIN ON AND GATE DATA</p>
-                    <p class="text-secondary mb-3 small">
-                        We give it 4 examples. Inputs and their expected outputs. Nothing else.
-                    </p>
-                    <pre style="color:#86efac; font-size: 0.85rem; overflow-x:auto;">and_data = [
+            <div class="code-block my-4">
+                <div class="code-block-header">
+                    <div class="code-block-dots">
+                        <span class="dot-red"></span>
+                        <span class="dot-yellow"></span>
+                        <span class="dot-green"></span>
+                    </div>
+                    <span class="code-block-lang">python — AND gate training</span>
+                    <button class="code-block-copy">Copy</button>
+                </div>
+                <pre>and_data = [
     (0, 0, 0),
     (0, 1, 0),
     (1, 0, 0),
@@ -283,7 +303,6 @@ print(f"AND(0, 0) = {p1.predict(0, 0)}")
 print(f"AND(0, 1) = {p1.predict(0, 1)}")
 print(f"AND(1, 0) = {p1.predict(1, 0)}")
 print(f"AND(1, 1) = {p1.predict(1, 1)}")</pre>
-                </div>
             </div>
 
             <p>
@@ -294,13 +313,17 @@ print(f"AND(1, 1) = {p1.predict(1, 1)}")</pre>
 
 
             <!-- Part 3 -->
-            <div class="card bg-dark border-secondary my-4">
-                <div class="card-body">
-                    <p class="text-secondary mb-1 small">PART 3 — NOW TRAIN ON OR GATE DATA</p>
-                    <p class="text-secondary mb-3 small">
-                        Same class. Same code. Only the data changes.
-                    </p>
-                    <pre style="color:#86efac; font-size: 0.85rem; overflow-x:auto;">or_data = [
+            <div class="code-block my-4">
+                <div class="code-block-header">
+                    <div class="code-block-dots">
+                        <span class="dot-red"></span>
+                        <span class="dot-yellow"></span>
+                        <span class="dot-green"></span>
+                    </div>
+                    <span class="code-block-lang">python — OR gate training</span>
+                    <button class="code-block-copy">Copy</button>
+                </div>
+                <pre>or_data = [
     (0, 0, 0),
     (0, 1, 1),
     (1, 0, 1),
@@ -315,7 +338,6 @@ print(f"OR(0, 0) = {p2.predict(0, 0)}")
 print(f"OR(0, 1) = {p2.predict(0, 1)}")
 print(f"OR(1, 0) = {p2.predict(1, 0)}")
 print(f"OR(1, 1) = {p2.predict(1, 1)}")</pre>
-                </div>
             </div>
 
             <p>
@@ -514,7 +536,12 @@ print(f"OR(1, 1) = {p2.predict(1, 1)}")</pre>
             </div>
 
             <p>
-                AND and OR both work because they are <em>linearly separable</em> — a single
+                AND and OR both work because they are
+                <span class="term"
+                      data-title="Linearly Separable"
+                      data-def="A problem is linearly separable when a single straight line can divide all the correct answers from the incorrect ones. The perceptron can only solve problems of this type."
+                      data-link="">linearly separable</span>
+                — a single
                 straight line can place all the 0s on one side and all the 1s on the other.
                 That is the geometric reality of what the perceptron discovers during training.
             </p>

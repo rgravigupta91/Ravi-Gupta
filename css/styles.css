@@ -114,6 +114,37 @@ a {
     font-weight: 600;
 }
 
+/* Dropdown items must use theme-aware color, not navbar-dark inherited color */
+.dropdown-menu .dropdown-item {
+    color: var(--bs-dropdown-link-color);
+}
+
+/* =========================================================
+   Light theme overrides — adapt hardcoded dark classes
+   ========================================================= */
+
+[data-bs-theme="light"] .card.bg-dark {
+    background-color: var(--bs-card-bg) !important;
+    color: var(--bs-body-color) !important;
+}
+
+[data-bs-theme="light"] .card.bg-dark.border-secondary,
+[data-bs-theme="light"] .card.border-secondary {
+    border-color: var(--bs-border-color) !important;
+}
+
+[data-bs-theme="light"] .table-dark {
+    --bs-table-bg: var(--bs-secondary-bg);
+    --bs-table-color: var(--bs-body-color);
+    --bs-table-border-color: var(--bs-border-color);
+    --bs-table-striped-bg: var(--bs-tertiary-bg);
+    --bs-table-hover-bg: var(--bs-tertiary-bg);
+}
+
+[data-bs-theme="light"] .card.bg-dark .text-secondary {
+    color: var(--bs-secondary-color) !important;
+}
+
 
 .navbar-profile {
     width: 38px;
@@ -121,4 +152,169 @@ a {
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
+}
+
+/* =========================================================
+   Theme toggle button
+   ========================================================= */
+
+#themeToggle {
+    color: #ffffff;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+#themeToggle:hover {
+    opacity: 1;
+    color: #ffffff;
+}
+
+/* =========================================================
+   Card hover
+   ========================================================= */
+
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   Code Block — shell style with copy button
+   ========================================================= */
+
+.code-block {
+    border: 1px solid #2d2d2d;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    background: #0d0d0d;
+}
+
+.code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1a1a1a;
+    padding: 8px 14px;
+    border-bottom: 1px solid #2d2d2d;
+}
+
+.code-block-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.code-block-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.code-block-dots .dot-red    { background: #ff5f57; }
+.code-block-dots .dot-yellow { background: #ffbd2e; }
+.code-block-dots .dot-green  { background: #28c840; }
+
+.code-block-lang {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.code-block-header {
+    position: relative;
+}
+
+.code-block-copy {
+    background: none;
+    border: 1px solid #444;
+    color: #aaa;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 1;
+}
+
+.code-block-copy:hover {
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+.code-block-copy.copied {
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 16px;
+    color: #86efac;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    background: transparent;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   Term Tooltip
+   ========================================================= */
+
+.term {
+    border-bottom: 1px dashed #22c55e;
+    cursor: help;
+    color: inherit;
+}
+
+.term-tooltip {
+    position: fixed;
+    z-index: 9999;
+    width: 280px;
+    background: #1a1a1a;
+    border: 1px solid #2d2d2d;
+    border-left: 3px solid #22c55e;
+    border-radius: 6px;
+    padding: 12px 14px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+    display: none;
+    pointer-events: auto;
+}
+
+.term-tooltip.visible {
+    display: block;
+}
+
+.term-tooltip-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #22c55e;
+    margin-bottom: 5px;
+}
+
+.term-tooltip-def {
+    font-size: 0.8rem;
+    color: #aaa;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.term-tooltip-link {
+    font-size: 0.75rem;
+    color: #22c55e;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.term-tooltip-link:hover {
+    text-decoration: underline;
 }
