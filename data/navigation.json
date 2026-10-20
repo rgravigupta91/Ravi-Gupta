@@ -4,43 +4,50 @@
       "title": "Home",
       "url": "/",
       "view": "home",
-      "enabled": true
+      "enabled": true,
+      "description": "Ravi Kumar Gupta — AI Engineer and Enterprise Software Engineer with 12+ years of experience building intelligent systems with Generative AI, Agentic AI, and SAP S/4HANA."
     },
     {
       "title": "Journal",
       "url": "/journal",
-      "view": "journal", 
+      "view": "journal",
       "enabled": true,
+      "description": "Journals by Ravi Kumar Gupta — stories and insights on AI, Machine Learning, Deep Learning, and Enterprise Software Engineering.",
       "children": [
             {
                     "title": "Are we Under Utilizing AI?",
                     "url": "/journal/are-we-under-utilizing-ai",
                     "view": "journal-are-we-under-utilizing-ai",
-                    "enabled": true
+                    "enabled": true,
+                    "description": "Are we truly using AI to its full potential? An exploration of how AI is being applied today and where the real opportunities are being missed."
                 },
                 {
                     "title": "You Give It Examples. It Finds the Rule.",
                     "url": "/journal/you-give-it-examples-it-finds-the-rule",
                     "view": "journal-you-give-it-examples-it-finds-the-rule",
-                    "enabled": true
+                    "enabled": true,
+                    "description": "How AI programming is fundamentally different from conventional programming — explained through the AND gate and the Perceptron, with working Python code."
                 },
                 {
                     "title": "It Could Not Solve XOR. That Changed Everything.",
                     "url": "/journal/it-could-not-solve-xor-that-changed-everything",
                     "view": "journal-it-could-not-solve-xor-that-changed-everything",
-                    "enabled": true
+                    "enabled": true,
+                    "description": "Why the Perceptron failed at XOR — and how that single failure led to the invention of multi-layer neural networks and modern deep learning."
                 },
                 {
                     "title": "From One Neuron to a Billion — And What We Built on Top",
                     "url": "/journal/from-one-neuron-to-a-billion",
                     "view": "journal-from-one-neuron-to-a-billion",
-                    "enabled": true
+                    "enabled": true,
+                    "description": "From a single perceptron to billion-parameter neural networks — the story of how deep learning architectures evolved and what we built on top of them."
                 },
                 {
                     "title": "LLM Is the Heart. But Is It the Only One?",
                     "url": "/journal/llm-is-the-heart-but-is-it-the-only-one",
                     "view": "journal-llm-is-the-heart-but-is-it-the-only-one",
-                    "enabled": true
+                    "enabled": true,
+                    "description": "Large Language Models are powerful — but are they the only component needed for truly intelligent AI systems? Exploring what lies beyond the LLM."
                 },
                 {
                     "title": "AI",
@@ -74,13 +81,15 @@
       "title": "Projects",
       "url": "/projects",
       "view": "projects",
-      "enabled": true
+      "enabled": true,
+      "description": "AI and enterprise software projects by Ravi Kumar Gupta — Risk Assessment, DeepTicker stock prediction, CodeAtlas AI assistant, and Customer360 recommendation engine."
     },
     {
       "title": "Learning",
       "url": "/learning",
       "view": "learning",
       "enabled": false,
+      "description": "Learn AI and Machine Learning with Ravi Kumar Gupta — structured guides on Machine Learning, Deep Learning, NLP, Generative AI, and Agentic AI explained simply.",
       "children": [
         {
           "title": "Machine Learning",
@@ -94,19 +103,22 @@
       "title": "Journey",
       "url": "/journey",
       "view": "journey",
-      "enabled": true
+      "enabled": true,
+      "description": "The professional journey of Ravi Kumar Gupta — from enterprise software engineering to AI, Machine Learning, Deep Learning, and Generative AI."
     },
     {
       "title": "About",
       "url": "/about",
       "view": "about",
-      "enabled": true
+      "enabled": true,
+      "description": "About Ravi Kumar Gupta — an AI Engineer combining 12+ years of SAP enterprise engineering with Generative AI, Machine Learning, and Deep Learning."
     },
     {
       "title": "Contact",
       "url": "/contact",
       "view": "contact",
-      "enabled": true
+      "enabled": true,
+      "description": "Get in touch with Ravi Kumar Gupta — AI Engineer and Enterprise Software Engineer."
     }
   ]
 }

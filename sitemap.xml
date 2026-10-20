@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/</loc>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/about</loc>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/projects</loc>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/journey</loc>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/journal</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/journal/are-we-under-utilizing-ai</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/journal/you-give-it-examples-it-finds-the-rule</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/journal/it-could-not-solve-xor-that-changed-everything</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/journal/from-one-neuron-to-a-billion</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/journal/llm-is-the-heart-but-is-it-the-only-one</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <url>
+        <loc>https://rgravigupta91.github.io/Ravi-Gupta/contact</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+</urlset>

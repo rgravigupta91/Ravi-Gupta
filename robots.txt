@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rgravigupta91.github.io/Ravi-Gupta/sitemap.xml

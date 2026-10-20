@@ -7,6 +7,15 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ravi Kumar Gupta — AI Engineer and Enterprise Software Engineer with 12+ years of experience building intelligent systems with Generative AI, Agentic AI, Machine Learning, and SAP S/4HANA.">
+    <meta name="keywords" content="AI Engineer, Generative AI, Agentic AI, Machine Learning, Deep Learning, SAP S/4HANA, Enterprise Software, LLM, RAG">
+    <meta name="author" content="Ravi Kumar Gupta">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Ravi Kumar Gupta — AI Engineer">
+    <meta property="og:description" content="AI Engineer and Enterprise Software Engineer building intelligent systems with Generative AI, Agentic AI, and SAP S/4HANA.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rgravigupta91.github.io/Ravi-Gupta/">
 
     <script>
         (function () {
@@ -19,62 +28,49 @@
         })();
     </script>
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script>
-        document.head.insertAdjacentHTML('beforeend',
-            '<link rel="stylesheet" href="css/styles.css?v=' + Date.now() + '">');
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
 
 <body>
 
     <!-- ============================= -->
-<!-- Navigation                    -->
-<!-- ============================= -->
+    <!-- Navigation                    -->
+    <!-- ============================= -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
 
-    <div class="container">
+        <div class="container">
 
-        <a class="navbar-brand fw-bold fs-3 d-flex align-items-center" href="#">
-            <img src="assets/images/profile.png"
-                alt="Ravi Kumar Gupta"
-                class="navbar-profile">
-            <span>Ravi Kumar Gupta</span>
-        </a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarMenu">
+            <a class="navbar-brand fw-bold fs-3 d-flex align-items-center" href="#">
+                <img src="assets/images/profile.png"
+                    alt="Ravi Kumar Gupta"
+                    class="navbar-profile">
+                <span>Ravi Kumar Gupta</span>
+            </a>
 
-            <span class="navbar-toggler-icon"></span>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        </button>
+            <button id="themeToggle" class="btn btn-link nav-link px-2 ms-2" title="Toggle theme">
+                <i id="themeIcon" class="bi bi-sun-fill fs-5"></i>
+            </button>
 
-        <button id="themeToggle" class="btn btn-link nav-link px-2 ms-2" title="Toggle theme">
-            <i id="themeIcon" class="bi bi-sun-fill fs-5"></i>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarMenu">
-
-            <ul class="navbar-nav ms-auto" id="topNavigation">
-
-                <!-- Navigation will be generated dynamically -->
-
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto" id="topNavigation">
+                    <!-- Navigation will be generated dynamically -->
+                </ul>
+            </div>
 
         </div>
 
-    </div>
-
-</nav>
-
+    </nav>
 
 
     <!-- ============================= -->
@@ -84,11 +80,8 @@
     <main id="content"
           class="container"
           style="margin-top:90px; min-height:80vh;">
-
-        <!-- View will be loaded here -->
         This is the main content area. The content of the selected view will be loaded here dynamically.
     </main>
-
 
 
     <!-- ============================= -->
@@ -102,32 +95,18 @@
             <div class="row">
 
                 <div class="col-md-6">
-
                     <h5>Ravi Kumar Gupta</h5>
-
-                    <p class="text-secondary">
-
-                        AI Research • Enterprise AI • Data Science
-
-                    </p>
-
+                    <p class="text-secondary">AI Research • Enterprise AI • Data Science</p>
                 </div>
 
                 <div class="col-md-6 text-md-end">
                     <a class="social-link" href="https://github.com/rgravigupta91" target="_blank">
                         <span class="bi bi-github"> GitHub</span>
-                    </a>&nbsp;&nbsp;|&nbsp;&nbsp;   
-                    
+                    </a>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="https://www.linkedin.com/in/rgravigupta91/" class="social-link" target="_blank">
                         <span class="bi bi-linkedin"> LinkedIn</span>
-                    </a>&nbsp;&nbsp;|&nbsp;&nbsp;   
-
-                    <a href="#"
-                        class="social-link footer-nav"
-                        data-url="/contact">
-                            Contact
-                    </a>
-
+                    </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#" class="social-link footer-nav" data-url="/contact">Contact</a>
                 </div>
 
             </div>
@@ -137,13 +116,9 @@
     </footer>
 
 
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         (function () {
-            var v = Date.now();
             var scripts = [
                 'js/utils.js',
                 'js/config.js',
@@ -155,17 +130,28 @@
                 'js/router.js',
                 'js/app.js'
             ];
-            function loadNext(i) {
-                if (i >= scripts.length) return;
-                var el = document.createElement('script');
-                el.src = scripts[i] + '?v=' + v;
-                el.onload = function () { loadNext(i + 1); };
-                document.body.appendChild(el);
+
+            function loadAssets(v) {
+                document.head.insertAdjacentHTML('beforeend',
+                    '<link rel="stylesheet" href="css/styles.css?v=' + v + '">');
+
+                function loadNext(i) {
+                    if (i >= scripts.length) return;
+                    var el = document.createElement('script');
+                    el.src = scripts[i] + '?v=' + v;
+                    el.onload = function () { loadNext(i + 1); };
+                    document.body.appendChild(el);
+                }
+                loadNext(0);
             }
-            loadNext(0);
+
+            fetch('data/version.json', { cache: 'no-cache' })
+                .then(function (r) { return r.json(); })
+                .then(function (data) { loadAssets(data.version); })
+                .catch(function () { loadAssets('1'); });
         })();
     </script>
 
 </body>
- 
+
 </html>

@@ -68,6 +68,9 @@ async function navigateTo(menu, clickedLink = null, updateHistory = false) {
     await loadView(menu.view);
     initializeView(menu.view);
     document.title = `${menu.title} | Ravi Kumar Gupta`;
+    if (menu.description) {
+        document.querySelector('meta[name="description"]').setAttribute('content', menu.description);
+    }
     // Close mobile menu if open
     closeMobileMenu();
     console.log("Before closeMobileMenu");
